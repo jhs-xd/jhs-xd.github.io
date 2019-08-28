@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-28T18:18:45.346Z</updated>
+  <updated>2019-08-28T18:22:29.891Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://yoursite.com/2019/08/29/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E/"/>
     <id>http://yoursite.com/2019/08/29/换电脑后/</id>
     <published>2019-08-28T17:03:44.700Z</published>
-    <updated>2019-08-28T18:18:45.346Z</updated>
+    <updated>2019-08-28T18:22:29.891Z</updated>
     
-    <content type="html"><![CDATA[<p><blockquote class="blockquote-center">若不抽出时间来创造自己想要的生活，你最终将不得不花费大量的时间来应付自己不想要的生活。.<br><img src="/myimages/23.jpg" alt></blockquote></p><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="//music.163.com/outchain/player?type=2&id=28587850&auto=1&height=66"></iframe><hr><h1 id="换电脑带来的问题"><a href="#换电脑带来的问题" class="headerlink" title="换电脑带来的问题"></a>换电脑带来的问题</h1><ol><li><p>博客Post时间和博客顺序无法还原</p><p> 由于是通过拷贝的方式备份的原来的Blog文件夹，在新电脑上安装完hexo和node.js等环境后， <code>hexo g</code> ——&gt; <code>hexo d</code> 重新推送之前的博客内容后，系统判断每一篇博客的Post时间都是当前时间，所以博客的顺序就是随机的，即无法还原之前正确的博客顺序。</p></li><li><p>少备份了两篇博客</p><p> 备份时间不是最后一次推送之后，少备份了两篇，于是照着服务端的博客样式把漏掉的两篇重新敲了一遍，浪费了较长时间。</p></li></ol><hr><h1 id="换电脑后继续写hexo博客的方法"><a href="#换电脑后继续写hexo博客的方法" class="headerlink" title="换电脑后继续写hexo博客的方法"></a>换电脑后继续写hexo博客的方法</h1><h2 id="方法一：源文件拷贝"><a href="#方法一：源文件拷贝" class="headerlink" title="方法一：源文件拷贝"></a>方法一：源文件拷贝</h2><p>容易想到，但弊端明显，如上所述。<br>具体操作步骤可参考<a href="https://www.cnblogs.com/study-everyday/p/8902136.html" target="_blank" rel="noopener">这篇博文</a>，我就照着这个操作的，不建议这个方法。</p><h2 id="方法二：GitHub管理（推荐）"><a href="#方法二：GitHub管理（推荐）" class="headerlink" title="方法二：GitHub管理（推荐）"></a>方法二：GitHub管理（推荐）</h2><ol><li>解决方案：<br>在github上已经生成的<strong>hexo静态代码</strong>处建立另一个分支，利用这个分支来管理自己<strong>hexo的源文件</strong></li><li>操作步骤：<br>参考<a href="https://blog.csdn.net/heimu24/article/details/81210640" target="_blank" rel="noopener">这篇博文</a>。</li></ol>]]></content>
+    <content type="html"><![CDATA[<p><blockquote class="blockquote-center">若不抽出时间来创造自己想要的生活，你最终将不得不花费大量的时间来应付自己不想要的生活.<br><img src="/myimages/23.jpg" alt></blockquote></p><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="//music.163.com/outchain/player?type=2&id=28587850&auto=1&height=66"></iframe><hr><h1 id="换电脑带来的问题"><a href="#换电脑带来的问题" class="headerlink" title="换电脑带来的问题"></a>换电脑带来的问题</h1><ol><li><p>博客Post时间和博客顺序无法还原</p><p> 由于是通过拷贝的方式备份的原来的Blog文件夹，在新电脑上安装完hexo和node.js等环境后， <code>hexo g</code> ——&gt; <code>hexo d</code> 重新推送之前的博客内容后，系统判断每一篇博客的Post时间都是当前时间，所以博客的顺序就是随机的，即无法还原之前正确的博客顺序。</p></li><li><p>少备份了两篇博客</p><p> 备份时间不是最后一次推送之后，少备份了两篇，于是照着服务端的博客样式把漏掉的两篇重新敲了一遍，浪费了较长时间。</p></li></ol><hr><h1 id="换电脑后继续写hexo博客的方法"><a href="#换电脑后继续写hexo博客的方法" class="headerlink" title="换电脑后继续写hexo博客的方法"></a>换电脑后继续写hexo博客的方法</h1><h2 id="方法一：源文件拷贝"><a href="#方法一：源文件拷贝" class="headerlink" title="方法一：源文件拷贝"></a>方法一：源文件拷贝</h2><p>容易想到，但弊端明显，如上所述。<br>具体操作步骤可参考<a href="https://www.cnblogs.com/study-everyday/p/8902136.html" target="_blank" rel="noopener">这篇博文</a>，我就照着这个操作的，不建议这个方法。</p><h2 id="方法二：GitHub管理（推荐）"><a href="#方法二：GitHub管理（推荐）" class="headerlink" title="方法二：GitHub管理（推荐）"></a>方法二：GitHub管理（推荐）</h2><ol><li>解决方案：<br>在github上已经生成的<strong>hexo静态代码</strong>处建立另一个分支，利用这个分支来管理自己<strong>hexo的源文件</strong></li><li>操作步骤：<br>参考<a href="https://blog.csdn.net/heimu24/article/details/81210640" target="_blank" rel="noopener">这篇博文</a>。</li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;若不抽出时间来创造自己想要的生活，你最终将不得不花费大量的时间来应付自己不想要的生活。.&lt;br&gt;&lt;img src=&quot;/myimages/23.jpg&quot; alt&gt;&lt;/blockquote&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;若不抽出时间来创造自己想要的生活，你最终将不得不花费大量的时间来应付自己不想要的生活.&lt;br&gt;&lt;img src=&quot;/myimages/23.jpg&quot; alt&gt;&lt;/blockquote&gt;&lt;/p&gt;
     
     </summary>
     
