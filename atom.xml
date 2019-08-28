@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-28T16:04:35.096Z</updated>
+  <updated>2019-08-28T17:39:56.278Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>换电脑后</title>
+    <link href="http://yoursite.com/2019/08/29/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E/"/>
+    <id>http://yoursite.com/2019/08/29/换电脑后/</id>
+    <published>2019-08-28T17:03:44.700Z</published>
+    <updated>2019-08-28T17:39:56.278Z</updated>
+    
+    <content type="html"><![CDATA[<p><blockquote class="blockquote-center">Variety is the spice of life.<br><img src="/myimages/23.jpg" alt></blockquote></p><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="//music.163.com/outchain/player?type=2&id=28587850&auto=1&height=66"></iframe><hr><h1 id="换电脑带来的问题"><a href="#换电脑带来的问题" class="headerlink" title="换电脑带来的问题"></a>换电脑带来的问题</h1><ol><li><p>博客Post时间和博客顺序无法还原</p><p> 由于是通过拷贝的方式备份的原来的Blog文件夹，在新电脑上安装完hexo和node.js等环境后， <code>hexo g</code> ——&gt; <code>hexo d</code> 重新推送之前的博客内容后，系统判断每一篇博客的Post时间都是当前时间，所以博客的顺序就是随机的，即无法还原之前正确的博客顺序。</p></li><li><p>少备份了两篇博客</p><p> 备份时间不是最后一次推送之后，少备份了两篇，于是照着服务端的博客样式把漏掉的两篇重新敲了一遍，浪费了较长时间。</p></li></ol><hr><h1 id="换电脑后继续写hexo博客的方法"><a href="#换电脑后继续写hexo博客的方法" class="headerlink" title="换电脑后继续写hexo博客的方法"></a>换电脑后继续写hexo博客的方法</h1><h2 id="方法一：源文件拷贝"><a href="#方法一：源文件拷贝" class="headerlink" title="方法一：源文件拷贝"></a>方法一：源文件拷贝</h2><p>容易想到，但弊端明显，如上所述。<br>具体操作步骤可参考<a href="https://www.cnblogs.com/study-everyday/p/8902136.html" target="_blank" rel="noopener">这篇博文</a>，我就照着这个操作的，不建议这个方法。</p><h2 id="方法二：GitHub管理（推荐）"><a href="#方法二：GitHub管理（推荐）" class="headerlink" title="方法二：GitHub管理（推荐）"></a>方法二：GitHub管理（推荐）</h2><ol><li>解决方案：<br>在github上已经生成的<strong>hexo静态代码</strong>处建立另一个分支，利用这个分支来管理自己<strong>hexo的源文件</strong></li><li>操作步骤：<br>参考<a href="https://blog.csdn.net/heimu24/article/details/81210640" target="_blank" rel="noopener">这篇博文</a>。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;Variety is the spice of life.&lt;br&gt;&lt;img src=&quot;/myimages/23.jpg&quot; alt&gt;&lt;/blockquote&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hello hexo" scheme="http://yoursite.com/categories/hello-hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>基于VirtualBox虚拟机安装Ubuntu</title>
@@ -442,28 +464,6 @@
     
     
       <category term="Maze" scheme="http://yoursite.com/tags/Maze/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Learn to Git</title>
-    <link href="http://yoursite.com/2019/08/29/Learn-to-Git/"/>
-    <id>http://yoursite.com/2019/08/29/Learn-to-Git/</id>
-    <published>2019-08-28T16:34:15.709Z</published>
-    <updated>2019-04-10T13:01:07.679Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center">Sharp tools make good work.<img src="/myimages/7.jpg" alt></blockquote><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="//music.163.com/outchain/player?type=2&id=27093264&auto=0&height=66"></iframe><hr><h1 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h1><p>Git是目前最先进的分布式版本控制系统</p><ul><li>和集中式版本控制系统相比，分布式版本控制系统的安全性要高很多，因为每个人电脑里都有完整的版本库</li><li>Git相比于其他版本管理系统具有极其强大的分支管理功能</li><li>Git最大的优势是远程仓库的功能，Github可以提供Git仓库托管服务</li></ul><hr><h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><p>官网下载安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a><br>安装完成后，在开始菜单里找到”Git”-&gt;”Git Bash Here”，弹出一个命令行窗口就说明你的Git安装成功啦！<br>还需做以下简单设置：</p><ul><li>第一步：设置global参数。因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址<pre><code>$ git config --global user.name &quot;Your Name&quot;$ git config --global user.email &quot;email@example.com&quot;</code></pre></li><li>第二步：创建版本库<br>（1）创建一个目录。版本库创建完成后这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”<br>（2）通过git init命令把这个目录变成Git可以管理的仓库。当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的</li><li>第三步：把文本文件（.txt/.html/程序源码）添加到版本库<br>（1）用命令git add告诉Git，把文件添加到仓库：<pre><code>$ git add readme.txt</code></pre>（2）用命令git commit告诉Git，把文件提交到仓库：<pre><code>$ git commit -m &quot;wrote a readme file&quot;</code></pre></li></ul><hr><h1 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h1><p>git status命令可以让我们时刻掌握仓库当前的状态(4种)</p><ol><li>未添加文件到仓库（暂存区）<br>untracked</li><li>修改了，未添加新的修改到仓库（暂存区）<br><img src="/myimages/7GitStatus2.png" alt></li><li>将修改添加到暂存区了，待提交<br><img src="/myimages/7GitStatus3.png" alt></li><li>没有可以提交的修改<br><img src="/myimages/7GitStatus4.png" alt></li></ol><hr><h1 id="其他git命令"><a href="#其他git命令" class="headerlink" title="其他git命令"></a>其他git命令</h1><ol><li>git diff顾名思义就是查看difference（具体修改了什么内容），显示的格式正是Unix通用的diff格式<pre><code>$ git diff readme.txt</code></pre></li><li>git log命令显示从最近到最远的提交日志，弹出commit id（版本号），后面可以加上参数  –pretty=oneline</li><li>git reset<br>回退到上一个版本（回到历史）： <pre><code>$ git  reset --hard HEAD^</code></pre>跳到指定版本号（穿梭到未来（需要版本号）、回到历史）： <pre><code>$ git reset --hard 3628164</code></pre></li><li>git reflog用来记录你的每一次命令，用它可以找到以前的版本号</li></ol><hr><h1 id="工作区、暂存区（stage）、分支（master）"><a href="#工作区、暂存区（stage）、分支（master）" class="headerlink" title="工作区、暂存区（stage）、分支（master）"></a>工作区、暂存区（stage）、分支（master）</h1><p><img src="/myimages/7GitStage.png" alt><br>我们把文件往Git版本库里添加的时候，是分两步执行的：</p><ul><li>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区</li><li>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支</li></ul><blockquote><p>git commit只负责把暂存区的修改提交了（每次修改，如果不add到暂存区，那就不会加入到commit中）</p></blockquote><hr><h1 id="撤销和删除"><a href="#撤销和删除" class="headerlink" title="撤销和删除"></a>撤销和删除</h1><h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ul><li>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令：git checkout – file</li><li>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作</li><li>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，可以选择回退到之前的版本git reset –hard HEAD^，不过前提是没有推送到远程库</li></ul><h2 id="删除文件步骤"><a href="#删除文件步骤" class="headerlink" title="删除文件步骤"></a>删除文件步骤</h2><p>一般情况下，你通常直接在文件管理器中把没用的文件删了</p><ul><li>情景一：确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit</li><li>情景二：删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本git chechout –file</li></ul><blockquote><p>git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p></blockquote><hr><h1 id="远程仓库GitHub"><a href="#远程仓库GitHub" class="headerlink" title="远程仓库GitHub"></a>远程仓库GitHub</h1><h2 id="创建并添加SSH-Key"><a href="#创建并添加SSH-Key" class="headerlink" title="创建并添加SSH Key"></a>创建并添加SSH Key</h2><p>本地Git仓库和GitHub仓库之间的传输是通过SSH加密的</p><ul><li><p>创建SSH key</p><p>  $ ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“</p></li><li>添加SSH key<br>登陆GitHub，打开“Account settings”——&gt;“SSH Keys”页面——&gt;<br>点“Add SSH Key”，填上任意Title——&gt;在Key文本框里粘贴id_rsa.pub文件的内容</li></ul><h2 id="链接本地git版本库和远程github版本库"><a href="#链接本地git版本库和远程github版本库" class="headerlink" title="链接本地git版本库和远程github版本库"></a>链接本地git版本库和远程github版本库</h2><p>现在的情景是，你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作，真是一举多得</p><ol><li>首先，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：名称与本地git仓库最好一致</li><li>将本地仓库与github仓库关联：<pre><code>$ git remote add origin git@github.com:github账户名/github上的仓库名.git</code></pre>添加后，远程库的名字就是origin</li><li>把本地库的所有内容第一次推送到远程库上：<pre><code>$ git push -u origin master</code></pre>注意：<br>（1）把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程<br>（2）由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</li><li>推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样</li><li>从现在起，只要本地作了提交，就可以通过命令：$ git push origin master 把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</li></ol><h2 id="删除已有远程库origin"><a href="#删除已有远程库origin" class="headerlink" title="删除已有远程库origin"></a>删除已有远程库origin</h2><ol><li>本地库已经关联了一个名叫origin的远程库，此时，可以先用git remote -v查看远程库信息</li><li>我们可以删除已有的GitHub远程库：git remote rm origin</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;Sharp tools make good work.&lt;img src=&quot;/myimages/7.jpg&quot; alt&gt;&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="hello git" scheme="http://yoursite.com/categories/hello-git/"/>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
