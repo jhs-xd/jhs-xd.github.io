@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JVM,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="The shortest way to do many things is to only one thing at a time. 自动内存管理机制">
+<meta name="keywords" content="JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解JVM（一）">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/深入理解JVM/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="The shortest way to do many things is to only one thing at a time. 自动内存管理机制">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/9.jpg">
+<meta property="og:image" content="http://yoursite.com/myimages/9运行时数据区.png">
+<meta property="og:image" content="http://yoursite.com/myimages/9对象被GC的条件.png">
+<meta property="og:updated_time" content="2019-04-10T13:17:01.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解JVM（一）">
+<meta name="twitter:description" content="The shortest way to do many things is to only one thing at a time. 自动内存管理机制">
+<meta name="twitter:image" content="http://yoursite.com/myimages/9.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/深入理解JVM/">
+
+
+
+
+
+  <title>深入理解JVM（一） | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/深入理解JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深入理解JVM（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《深入理解JVM》/" itemprop="url" rel="index">
+                    <span itemprop="name">《深入理解JVM》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">The shortest way to do many things is to only one thing at a time.<br><img src="/myimages/9.jpg" alt><blockquote></blockquote></blockquote></p>
+<p>自动内存管理机制</p>
+<a id="more"></a>
+<hr>
+<h1 id="为啥学JVM"><a href="#为啥学JVM" class="headerlink" title="为啥学JVM"></a>为啥学JVM</h1><ol>
+<li>在绝大多数情况下，提升硬件性能无法等比例地提升程序的运作性能和并发能力。</li>
+<li>这里面有Java虚拟机的原因：为了达到给所有硬件提供一致的虚拟平台的目的，牺牲了一些与硬件相关的性能特性。</li>
+<li>当开发人员了解了JVM的运行原理，才能写出最适合虚拟机运行和自优化的代码。</li>
+</ol>
+<hr>
+<h1 id="相关知识点梳理"><a href="#相关知识点梳理" class="headerlink" title="相关知识点梳理"></a>相关知识点梳理</h1><p><strong>1. 自动内存管理机制</strong></p>
+<ul>
+<li>内存动态分配<ul>
+<li>运行时数据区域</li>
+<li>内存溢出异常</li>
+</ul>
+</li>
+<li>垃圾自动回收<ul>
+<li>垃圾收集算法</li>
+<li>垃圾收集器</li>
+<li>内存分配与回收策略 </li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 虚拟机执行子系统</strong></p>
+<ul>
+<li>Class类文件的结构</li>
+<li>虚拟机类加载机制<ul>
+<li>类加载的时机和过程</li>
+<li>类加载器</li>
+</ul>
+</li>
+<li>虚拟机字节码执行引擎</li>
+</ul>
+<p><strong>3. 高效并发</strong></p>
+<ul>
+<li>Java内存模型</li>
+<li>Java线程</li>
+<li>线程安全与锁优化<ul>
+<li>线程安全</li>
+<li>锁优化</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="自动内存管理机制"><a href="#自动内存管理机制" class="headerlink" title="自动内存管理机制"></a>自动内存管理机制</h1><h2 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h2><p><img src="/myimages/9运行时数据区.png" alt></p>
+<p>上图中：<br>绿色区域——所有线程共享的数据区<br>黄色区域——线程隔离的数据区</p>
+<p><strong>1. 程序计数器</strong>：当前线程正在执行的字节码指令的地址<br>        （1）每条线程都有一个独立的程序计数器<br>        （2）如果线程执行Java方法，则计数器记录的是正在执行的字节码问指令的地址<br>        （3）如果执行的是Native方法，则计数器值为空（Undefined）<br>        （4）此区域是唯一一个在Java虚拟机规范中没有滚定任何OutOfMemoryError情况的区域</p>
+<p><strong>2. 虚拟机栈</strong>：描述的是Java方法执行的内存模型。每个方法执行时都会创建一个栈帧（Stack Frame），用于存储局部变量表等…<br>局部变量表中包括：基本数据类型、对象引用、return Address类型</p>
+<p><strong>3. 堆</strong>：虚拟机启动时创建，唯一目的是存储实例对象（包括数组）<br>        Java堆是内存管理的主要区域，因此也称“GC堆”</p>
+<p><strong>4. 方法区</strong>：用于存储已被虚拟机加载的类信息、常量、静态变量等…</p>
+<p><strong>5. 常量池</strong>：存放编译期生成的各种字面量和符号引用</p>
+<h2 id="虚拟机中的对象"><a href="#虚拟机中的对象" class="headerlink" title="虚拟机中的对象"></a>虚拟机中的对象</h2><h3 id="对象的创建（5步）"><a href="#对象的创建（5步）" class="headerlink" title="对象的创建（5步）"></a>对象的创建（5步）</h3><ol>
+<li>检查类的符号引用，执行类加载过程<pre><code>检查：new指令的参数与是否能在常量池中定位到一个类的符号引用，并检查这个符号引用代表的类是否已经被加载
+</code></pre></li>
+<li>分配内存<pre><code>（1）分配方式：指针碰撞（java堆中的内存是规整的）；空闲列表（java堆中的内存不规整）
+（2）内存区域是否规整由所采用的垃圾收集器是否带有压缩整理功能决定
+</code></pre></li>
+<li>初始化为零值</li>
+<li>设置对象头</li>
+<li>执行init()方法，按照程序员的意愿初始化</li>
+</ol>
+<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><ol>
+<li>对象头<ul>
+<li>对象自身的运行时数据（哈希码、GC分代年龄、线程持有的锁…）</li>
+<li>类型指针</li>
+<li>记录数组长度的数据（数组特有）</li>
+</ul>
+</li>
+<li>实例数据部分：对象真正存储的有效信息</li>
+<li>对齐填充<pre><code>对象的大小必须是8字节的整数倍，所以需要占位符来填充
+</code></pre></li>
+</ol>
+<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>Java程序需要通过栈上的引用数据来操作堆上的具体对象，主流的对象的访问方式有两种：句柄访问、直接指针</p>
+<ol>
+<li>句柄访问：堆中划分一块内存作为句柄池，栈中存储的是对象的句柄地址</li>
+<li>直接指针：栈中存储的直接就是对象地址</li>
+</ol>
+<h2 id="判断对象是否存活"><a href="#判断对象是否存活" class="headerlink" title="判断对象是否存活"></a>判断对象是否存活</h2><p><strong>1. 引用计数算法</strong><br>（1）给对象中添加一个引用计数器，引用一次+1，引用失效-1。则引用计数器为0的对象就是不可能再被使用的<br>（2）不能解决对象之间互相循环引用的问题</p>
+<p><strong>2. 可达性分析算法</strong><br>（1）起始点：一系列GC Roots对象</p>
+<ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区中静态变量引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中JNI（Native方法）引用的对象</li>
+</ul>
+<p>（2）引用链（Reference Chain）：从起始点出发的搜索路径<br>（3）当一个对象到起始点的没有任何引用链相连，则证明此对象不可用</p>
+<p><strong>3. 引用的概念</strong><br>（1）JDK1.2之前，引用定义为：如果reference类型的数据中存储的数值代表的是另外一块内存的起始地址，就称这块内存代表着一个引用<br>（2）JDK1.2后，java对引用概念进行了扩充，分为：</p>
+<ul>
+<li>强引用：永远不回收</li>
+<li>软引用：将要溢出才回收，SoftReference类实现</li>
+<li>弱引用：必定回收，WeakReference类实现</li>
+<li>虚引用：被关联对象被回收时会显示系统通知，PhantomReference类实现</li>
+</ul>
+<p><strong>4. 对象被GC的条件</strong><br><img src="/myimages/9对象被GC的条件.png" alt><br>如上图所示，真正宣告一个队形死亡，至少要经理两次标记过程</p>
+<ul>
+<li>第一次判断对象是否与GC Roots相连，不相连则做“筛选标记”</li>
+<li>第二次判断对象是否重新关联引用链，关联了则做“复活标记”</li>
+</ul>
+<p>关于finallize()方法需要注意：<br>（1）任何一个对象的finallize()方法都只会被系统自动调用一次<br>（2）如果对象面临下一次回收，它的finallize()方法不会再执行，对象就无法自救了<br>（3）不建议使用finallize()方法</p>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p><strong>1. 标记-清除算法（Mark-Sweep）</strong><br>首先标记出需要回收的对象，标记完成后统一回收<br><strong>不足：</strong></p>
+<ul>
+<li>效率问题——标记和清除的效率低</li>
+<li>空间问题——清除后产生大量不连续的内存碎片</li>
+</ul>
+<p><strong>2. 复制算法（Copying）</strong><br>将内存分为较大的一块Eden区和两块较小的Survivor区，每次使用Eden和其中一块Survivor。（HotSpot虚拟机中Eden：Survivor=8:1）<br>回收时，将Eden和Survivor中还存活的对象一次性复制到另外一块Survivor空间上，清理掉Eden和刚才用过的Survivor空间。</p>
+<p><strong>3. 标记-整理算法（Mark-Compact）</strong><br>标记过程和“标记-清理”算法一致，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后清理掉端边界以外的内存。</p>
+<p><strong>4. 分代收集算法</strong><br>（1）新生代：复制算法<br>新生代中，每次垃圾收集时都会有大量的对象死去，只有少量存活<br>（2）老年代：标记-清理算法、标记-整理算法<br>老年代中对象存活率高，没有额外空间对它进行分配担保</p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><strong>从JDK1.3到JDK1.7，GC的发展历程：</strong></p>
+<pre><code>JDK1.3：Serial收集器（包括Serial Old）
+Parallel收集器（包括ParNew、JDK1.4：Parallel Scavenge、JDK1.6：Parallel Old）
+JDK1.5：Concurrent Mark Sweep（CMS）——第一款真正意义上的并发（Concurrent）收集器；实现了垃圾收集线程和用户线程基本上同时工作
+JDK1.7：Garbage First（G1）
+</code></pre><p><strong>1. Serial收集器（新生代）</strong><br>（1）单线程<br>（2）Stop The World：Serial进行垃圾收集时，必须暂停其他所有的工作线程（直到最新G1收集器出现，这个问题也没有完全解决，只是用户线程的暂停时间越来越短了）<br>（3）JVM在Client模式下的<strong>默认</strong>新生代收集器<br>（4）优点：简单、高效</p>
+<p><strong>2. ParNew收集器（新生代）</strong><br>（1）Serial收集器的多线程版本：使用多个线程进行垃圾收集<br>（2）JVM在Server模式下<strong>首选</strong>的新生代收集器<br>（3）除了Serial收集器外，只有ParNew能与CMS收集器配合使用（Parallel Scavenge不能配合CMS）</p>
+<p><strong><em>区分并发与并行</em></strong></p>
+<pre><code>并行（Parallel）：指多条垃圾回收线程并行工作，但此时用户线程仍然处于等待状态
+并发（Concurrent）：指用户线程和垃圾处理线程同时执行（但不一定是并行的，可能会交替执行），用户程序在继续执行，而垃圾收集程序运行在另一个CPU上
+</code></pre><p><strong>3. Parallel Scavenge收集器（新生代）</strong><br>（1）其他收集器关注GC时<strong>用户线程的停顿时间</strong>，Parallel Scavenge收集器的目标是达到一个可控的<strong>吞吐量</strong>，因此又称“吞吐量优先”收集器</p>
+<pre><code>吞吐量 = 运行用户代码时间 / （运行用户代码时间+垃圾收集时间）
+</code></pre><p>（2）停顿时间短：适合用户交互式程序<br>    吞吐量大：适合非交互的运算任务</p>
+<pre><code>停顿时间与吞吐量成反比
+</code></pre><p>（3）Parallel Scavenge收集器有一个开关参数，打开后就可以动态调整细节参数（新生代大小、Eden与Survivor比例、晋升老年代对象大小等），以提供最适合的停顿时间/吞吐量——<strong>GC自适应的调节策略</strong></p>
+<p><strong>4. Serial Old收集器（老年代）</strong><br>（1）单线程，标记-整理算法<br>（2）主要给Client模式下的JVM使用<br>（3）Server模式下，与Parallel Scavenge收集器搭配使用，或者作为CMS收集器的备选</p>
+<p><strong>5. Parallel Old收集器（老年代）</strong><br>（1）多线程，标记-整理算法<br>（2）Parallel Old是Parallel Scavenge收集器的老年代版本，一般配合Parallel Scavenge，实现“吞吐量优先”</p>
+<p><strong>6. CMS收集器（老年代）</strong><br>（1）目标：获取最短回收停顿时间<br>（2）第一款真正意义上的<strong>并发（Concurrent）收集器</strong>；实现了垃圾收集线程和用户线程基本上同时工作<br>（3）标记-清除算法<br>（4）步骤</p>
+<ul>
+<li>初始标记（CMS initial mark）</li>
+<li>并发标记（CMS concurrent mark）</li>
+<li>重新标记（CMS remark）</li>
+<li><p>并发清除（CMS concurrent sweep）</p>
+<pre><code>初始标记、重新标记两个步骤仍然要“Stop The World”，但这两个阶段的停顿时间很短；
+整个过程中并发标记和并发清除耗时最长，但收集器线程都可以与用户线程一起工作；
+所以，总体来说，CMS收集器的内存回收过程食欲用户线程一起并发执行的。
+</code></pre><p>（5）CMS的优点：并发收集、低停顿时间<br>缺点：CMS收集器对CPU资源非常敏感；无法处理浮动垃圾；CMS基于“标记-清除”算法，效率低、产生大量碎片空间</p>
+</li>
+</ul>
+<p><strong>7. G1收集器</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/深入理解JVM/">深入理解JVM（一）</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 21:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/深入理解JVM/" title="深入理解JVM（一）">http://yoursite.com/2019/08/29/深入理解JVM/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/深入理解JVM/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/测试图片/" rel="next" title="测试图片">
+                <i class="fa fa-chevron-left"></i> 测试图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/深入理解JVM（三）/" rel="prev" title="深入理解JVM（三）">
+                深入理解JVM（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为啥学JVM"><span class="nav-number">1.</span> <span class="nav-text">为啥学JVM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关知识点梳理"><span class="nav-number">2.</span> <span class="nav-text">相关知识点梳理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动内存管理机制"><span class="nav-number">3.</span> <span class="nav-text">自动内存管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存区域"><span class="nav-number">3.1.</span> <span class="nav-text">内存区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机中的对象"><span class="nav-number">3.2.</span> <span class="nav-text">虚拟机中的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的创建（5步）"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象的创建（5步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的内存布局"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的访问定位"><span class="nav-number">3.2.3.</span> <span class="nav-text">对象的访问定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断对象是否存活"><span class="nav-number">3.3.</span> <span class="nav-text">判断对象是否存活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">3.4.</span> <span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">3.5.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

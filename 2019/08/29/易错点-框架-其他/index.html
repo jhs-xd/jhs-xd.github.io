@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="框架；其他暂未分类的题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="易错点-框架+其他">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/易错点-框架-其他/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="框架；其他暂未分类的题目">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/6.jpg">
+<meta property="og:updated_time" content="2019-04-10T13:07:34.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="易错点-框架+其他">
+<meta name="twitter:description" content="框架；其他暂未分类的题目">
+<meta name="twitter:image" content="http://yoursite.com/myimages/6.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/易错点-框架-其他/">
+
+
+
+
+
+  <title>易错点-框架+其他 | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/易错点-框架-其他/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">易错点-框架+其他</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的错题库/" itemprop="url" rel="index">
+                    <span itemprop="name">我的错题库</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的错题库/牛客错题整理/" itemprop="url" rel="index">
+                    <span itemprop="name">牛客错题整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><div align="center"><strong>框架；其他暂未分类的题目</strong></div><br><img src="/myimages/6.jpg" alt></p>
+<a id="more"></a>
+<hr>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><pre><code>1 Spring
+  （1）Spring并没有为我们提供日志系统，我们需要使用AOP（面向方面编程）的方式，借助Spring与日志系统log4j实现我们自己的日志系统。
+  （2）Spring是一系列轻量级Java EE框架的集合
+  （3）Spring中包含一个“依赖注入”模式的实现
+  （4）使用Spring可以实现声明式事务
+
+2 判断：使用mvc模式设计的web应用程序可以大大减少代码量（×）
+  解析：MVC只是将分管不同功能的逻辑代码进行了隔离，增强了可维护和可扩展性，增强代码复用性，因此可以减少代码重复。
+  但是不保证减少代码量，多层次的调用模式还有可能增加代码量
+
+3 依赖注入（DI）设计模式
+  （1）依赖注入是一种思想，或者说是一种设计模式，在java中是通过反射机制实现，与具体框架无关
+  （2）Spring依赖注入（DI）的三种方式，分别为：接口注入、Setter 方法注入、构造方法注入
+
+4 在Struts框架中如果要使用Validation作验证的话，需要使用DynaValidatorActionForm
+
+5 关于struts框架判断
+（1）Struts中无法完成上传功能  （×）
+（2）Struts框架基于MVC模式    （√）
+（3）Struts框架容易引起流程复杂、结构不清晰等问题   （×）
+（4）Struts可以有效地降低项目的类文件数目 （×）
+</code></pre><hr>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><pre><code>1 环境变量可在编译source code时指定
+
+2 JVM在判定两个class是否相同时，不仅要判断两个类名是否相同，而且要判断是否由同一个类加载器实例加载的
+
+3 java object默认的基本方法中没有copy()，含有如下方法：
+  getClass(), hashCode(), equals(), clone(), toString(), notify(), notifyAll(),wait(), finalize()
+
+4 Java类加载器
+  （1）Bootstrap：一般用本地代码实现，负责加载 JVM 基础核心类库（ rt.jar ）
+  （2）Extension：从 java.ext.dirs 系统属性所指定的目录中加载类库，它的父加载器是 Bootstrap
+  （3）system class loader：又叫应用类加载器，其父类是 Extension 。它是应用最广泛的类加载器。它从环境变量 classpath或者系统属性 java.class.path 所指定的目录中加载类，是用户自定义加载器的默认父加载器
+  （4）用户自定义类加载器：java.lang.ClassLoader 的子类
+
+5 判断：javac一次可同时编译数个Java源文件    （√）
+
+6 判断：一个文件中只能有一个public class     （×）
+  解析： 一个文件中，可以有多个public class。外部类为public，还可以有public的内部类
+
+7 判断：若类中只含一个main方法，则必须是public的   （×）
+  解析：类中，可以有main方法，也可以没有main方法。而有一个main()方法的时候，也可以是任意访问权限，因为这个类不一定要执行，可以只是辅助类
+
+8 判断：javac.exe能指定编译结果要置于哪个目录（directory）     （√）
+  解析：－s指定存放生成的源文件的位置    
+9 java调试器jdb.exe
+
+10 判断：如果一个源文件中有多个类，那么构造器必须与公共类同名（×）
+   解析：如果有多个类，那么每个类都可以有自己的构造器，构造器与所属的类同名即可
+
+11 一个Java源程序文件中定义几个类和接口，则编译该文件后生成几个以.class为后缀的字节码文件
+</code></pre><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><pre><code>1 DBMS：数据库管理系统(Database Management System)
+  DBMS是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS
+  （1）DBMS对数据库的保护通过4个方面来实现：
+    数据库的恢复
+    数据库的并发控制
+    数据库的完整性控制
+    数据库安全性控制
+  （2） DBMS中事务有四个特性：持久性，一致性，原子性，隔离性
+    持久性实现——恢复管理子系统
+    一致性实现——并发控制子系统
+    原子性实现——完整性管理子系统
+    隔离性实现——安全控制管理子系统
+
+2 JDBC statement
+  （1）Statement、PreparedStatement和CallableStatement都是接口(interface)
+  （2）Statement继承自Wrapper、PreparedStatement继承自Statement、CallableStatement继承自PreparedStatement
+  （3）Statement接口提供了执行语句和获取结果的基本方法；  
+      PreparedStatement接口添加了处理 IN 参数的方法；  
+      CallableStatement接口添加了处理 OUT 参数的方法
+  （4）PreparedStatement的占位符对应着即将与之对应当值，并且一个占位符只能对应一个值
+      CallableStatement:支持调用存储过程,提供了对输入/输出参数(INOUT)的支持
+</code></pre><h2 id="图形化"><a href="#图形化" class="headerlink" title="图形化"></a>图形化</h2><pre><code>1 Swing与AWT
+  （1）Swing
+    为解决 AWT 存在的问题而新开发的图形界面包。Swing是对AWT的改良和扩展。Swing由纯Java写成，可移植性好，外观在不同平台上相同。
+    Swing是AWT的子类（×）
+    Swing在不同的操作系统中显示相同的风格（√）
+  （2）AWT
+    AWT抽象窗口工具包，早期编写图形界面应用程序的包。是通过调用操作系统的native方法实现的，所以不同的操作系统有不同的外观风格。
+    AWT在不同操作系统中显示相同的风格（×）
+    AWT不支持事件类型，Swing支持事件模型（×）
+
+2 判断：JPanel中不能包含按钮     （×）
+</code></pre><h2 id><a href="#" class="headerlink" title="#"></a>#</h2><pre><code>1 软件系统测试的16个策略
+  系统测试的16个策略：功能测试，性能测试（负载测试），压力测试，容量测试，安全性测试，GUI测试（易用性测试），
+  可用性测试，安装测试，配置测试，异常测试，备份测试，健壮性测试，文档测试，在线帮助测试，网络测试，稳定性测试
+
+2 在Applet中：
+  （1）init()：初始化；
+  （2）start()：激活；
+  （3）stop()：当Applet被覆盖时，可用stop()方法停止线程，典型作用是挂起一个线程；（applet 程序的页面最小化时执行的语句）
+  （4）destroy()：终止Applet,释放Applet的所有资源
+
+3 （1）实现GBK编码字节流到UTF-8编码字节流的转换：
+  byte[] src,dst;
+  dst=new String(src，&quot;GBK&quot;).getBytes(&quot;UTF-8&quot;);
+  （2）java中将ISO8859-1字符串转成GB2312编码：new String(&quot;ISO8959-1&quot;.getBytes(&quot;ISO8959-1&quot;)，“GB2312”)
+
+4 判断：每个中文字符占用2个字节，每个英文字符占用1个字节（×）
+  解析：Java一律采用Unicode编码方式，每个字符无论中文还是英文字符都占用2个字节
+
+5 判断：Java的char类型，通常以UTF-16 Big Endian的方式保存一个字符（√）
+
+6 JMX是在JDK1.4开始支持的
+
+7 效率最高的复制方法：System.arraycopy()
+
+8 面向对象的五大基本原则：
+        单一职责原则（SRP）
+        开放封闭原则（OCP） 
+        里氏替换原则（LSP） 
+        依赖倒置原则（DIP） 
+        接口隔离原则（ISP）
+
+9 依赖注入目的是减少组件之间的耦合度，使开发变得简单
+
+10  int i = 0;
+    i=i++;    //执行赋值操作之后再++
+    System.out.println(i);    
+    /*返回值为0
+      若执行i++则返回1
+      若执行i=++i则返回1*/
+
+11 中间件：中间件是一种独立的系统软件或服务程序，分布式应用软件借助这种软件在不同的技术之间共享资源。中间件位于客户机/服务器的操作系统之上，管理计算机资源和网络通讯
+   判断：中间件运行于客户机/服务器的操作系统内核中，提高内核运行效率 （×）
+   解析：中间件并不能提高内核的效率，一般只是负责网络信息的分发处理
+
+12 判断：finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源的回收，例如关闭文件等 （×）
+   解析：finalize()方法用于在垃圾回收器将对象从内存中清理出去之前，做必要的清理工作（整理系统资源、执行其他清理工作）。但是finalize()方法不一定被JVM调用，只有当垃圾回收器要清除垃圾时才被调用
+
+13 判断：java语言中的方法必定属于某一类  （×）
+   解析：方法也可以属于接口
+
+14 @SuppressWarnings(“deprecation”)的功能是：屏蔽不赞同使用的类和方法的警告
+
+15 判断：假设数据库中的字符是以GBK编码的，那么显示数据库数据的网页也必须是GBK编码的    （×）
+   解析：不同的编码之间是可以转换的
+
+16 判断：str+=&apos;     a&apos;     （×）
+   解析：有空格是字符串，需要用双引号
+
+17 java线程类优先级相同      （×）
+
+18 编码---判断：
+  （1）ASCII码是ANSI码的子集 （√）
+  （2）在简体中文的Windows系统中，ANSI就是GB2312 （√）
+  （3）ASCII码都是可打印字符 （×） 解析：ASCII还包含空字符
+
+19 路径的表示
+  （1） ./——表示当前项目的路径
+  （2） ../——表示当前目录的父目录路径
+  （3）盘符：/name/file——表示物理路径
+
+20 null可以被强制类型转换成任意类型（不是任意类型对象），于是可以通过它来执行静态方法
+
+21 private float f=1.0;   
+   //编译错误（大类型——&gt;小类型，需要进行强制转换 private float f=1.0f;/ private float f=float(1.0);）
+
+22 Java事件处理模型：事件源、事件对象、事件监听器
+
+23 Log4j的日志打印级别可以在运行时重新设置   （×）
+
+24 Java程序的种类：
+  （a）内嵌于Web文件中，由浏览器来观看的_Applet
+  （b）可独立运行的 Application
+  （c）服务器端的 Servlets
+
+25 java和C++都有三个特征：封装、继承和多态
+
+26 int count = 0;  count=count++;
+   //这种赋值没有意义，count++先赋值，再自加，所以count值永远是0
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/易错点-框架-其他/">易错点-框架+其他</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 21:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/易错点-框架-其他/" title="易错点-框架+其他">http://yoursite.com/2019/08/29/易错点-框架-其他/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/易错点-框架-其他/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/易错点-多线程-常用对象API/" rel="next" title="易错点-多线程+常用对象API">
+                <i class="fa fa-chevron-left"></i> 易错点-多线程+常用对象API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/易错点-正则-反射-IO流-网络编程/" rel="prev" title="易错点-正则+反射+IO流+网络编程">
+                易错点-正则+反射+IO流+网络编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">1.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">2.1.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">2.2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形化"><span class="nav-number">2.3.</span> <span class="nav-text">图形化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">#</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

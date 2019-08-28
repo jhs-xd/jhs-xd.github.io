@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Maze,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="The best hearts are always the bravest.">
+<meta name="keywords" content="Maze">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TWHomework——生成迷宫">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/TWHomework——生成迷宫/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="The best hearts are always the bravest.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/19.jpg">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWHomework1.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWHomework2.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWHomework3.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWCode_test.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory1.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory2.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory3.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory4.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory5.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TW_MazeFactory6.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWCode_Maze1.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWCode_Maze2.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWCode_Maze3.png">
+<meta property="og:image" content="http://yoursite.com/myimages/19TWCode_Constant.png">
+<meta property="og:updated_time" content="2019-04-10T14:07:39.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TWHomework——生成迷宫">
+<meta name="twitter:description" content="The best hearts are always the bravest.">
+<meta name="twitter:image" content="http://yoursite.com/myimages/19.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/TWHomework——生成迷宫/">
+
+
+
+
+
+  <title>TWHomework——生成迷宫 | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/TWHomework——生成迷宫/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TWHomework——生成迷宫</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">The best hearts are always the bravest.<br><img src="/myimages/19.jpg" alt></blockquote></p>
+<a id="more"></a>
+<hr>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ol>
+<li>问题</li>
+</ol>
+<p>用计算机生成迷宫是一个很有趣的任务。我们可以用道路网格(Road Grid) 来表示迷宫的道路，那么3 x 3的道路网格（图-1 左）可以对应一个7 x 7的渲染网格(Render Grid)——图-1 右的方式（迷宫的墙是灰色的，道路是白色的）：<br><img src="/myimages/19TWHomework1.png" alt></p>
+<p>如果我们将迷宫道路网格两个相邻的cell连通，则可以打通道路。如图-2所示：<br><img src="/myimages/19TWHomework2.png" alt></p>
+<p>连通 道路网格 有如下的约束条件：<br>● 每一个 cell 只能够直接与相邻正南、正北、正东、正西的 cell 连通。不能够和其他的 cell 连通。<br>● 两个 cell 之间的连通一定是双向的。即 cell(0,0) 和 cell(1,0) 连通等价于 cell(1,0) 和 cell(0,0) 的连通。</p>
+<ol start="2">
+<li>要求1：将迷宫渲染为字符串</li>
+</ol>
+<p>现在我们希望你书写程序，将给定迷宫的道路网格，渲染为字符串输出。例如，其使用方式如下（伪代码，仅做演示，实际实现时请应用实际语言的编程风格）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Maze maze = MazeFactory.Create(command);</span><br><span class="line">String mazeText = maze.Render();</span><br></pre></td></tr></table></figure></p>
+<p>其中 command 是一个字符串。它的定义如下：<br>● 第一行是迷宫道路网格的尺寸。例如 3 x 3 的迷宫为 3 3 ，而 5 x 4 的迷宫为 5 4 （5 行 4 列） 。<br>● 第二行是迷宫道路网格的连通性定义。如果 cell(0,1) 和 cell(0,2) 是连通的，则表示为：<br>0,1 0,2 ，多个连通以分号 ; 隔开。<br><img src="/myimages/19TWHomework3.png" alt></p>
+<ol start="3">
+<li>要求2：检查输入的有效性</li>
+</ol>
+<p>在处理输入的时候需要检查输入的有效性。需要检查的有效性包括如下的几个方面：<br>● 无效的数字：输入的字符串无法正确的转换为数字。此时，该函数的输出为字符串 ”Invalid<br>number format . ”<br>● 数字超出预定范围：数字超出了允许的范围，例如为负数等。此时，该函数的输出为字符串<br>”Number out of range . ”<br>● 格式错误：输入命令的格式不符合约定。此时，该函数的输出为字符串 ”Incorrect command<br>format . ”<br>● 连通性错误：如果两个网格无法连通，则属于这种错误。此时，该函数的输出为字符串 ”Maze<br>format error.”<br>当多个问题同时出现时，报告其中一个错误即可。</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>1、观察给定用例的输入输出可得出以下规律：</p>
+<p>（1）输入的第一行字符串“m n”用来确定迷宫的大小（scale），行数row=m<em>2+1，列数column=n</em>2<br>（2）输入的第二行字符串用来确定哪两个网格之间连通（path），并可以通过每一组网格的坐标及其之间的关系确定连通节点在新的迷宫中的位置</p>
+<p>2、迷宫由两个参数确定<br>（1）int[][] mazeArray<br>首先由第一行字符串确定迷宫大小，此二维数组的每一个元素为mazeArray[i][j]，若i或者j其中有一个偶数，则将该元素暂时赋值为0（代表墙W），其余位置确定赋1（代表初始通路R）；<br>后面需要根据输入字符串的第二行确定其他通路，修改此代表迷宫的二维数组mazeArray，将原本暂时赋的0改为1。</p>
+<p>（2）int[][] pathArray<br>将输入字符串第二行的处理为另一个二维数组pathArray，第一维度代表对字符串分组后的下标，第二维度代表每一个分组中的4个数字；</p>
+<p>例如0,1 0,2;0,0 1,0可以被分为两组，其中第一组中的元素分别为pathArray[0][0]=0，pathArray[0][1]=1，pathArray[0][2]=0，pathArray[0][3]=2</p>
+<p>3、确定连通节点在迷宫数组中的坐标<br>经过初始化的迷宫有了，怎么根据pathArray[][]找到int[][] mazeArray中连通节点的坐标呢？规律如下：<br>假设输入一组字符串“0,1 0,2”，根据在迷宫中的对应位置分别记为“x1,y1 x2,y2”，那么有：<br>（1）x1和x2、y1和y2必有一对相等，且不相等的一对数字必定相差1；<br>（2）连通节点的坐标mazeArray[a][b]：若x1=x2，a=x1<em>2+1,b=max(y1,y2)</em>2；若y1=y2，a=max(x1,x2)<em>2+1,b=y1</em>2<br>由此找到了其余连通节点在mazeArray中的坐标，将该位置上的元素重新置为1。</p>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="Test-java"><a href="#Test-java" class="headerlink" title="Test.java"></a>Test.java</h2><p><img src="/myimages/19TWCode_test.png" alt></p>
+<h2 id="MazeFactory-java"><a href="#MazeFactory-java" class="headerlink" title="MazeFactory.java"></a>MazeFactory.java</h2><p><img src="/myimages/19TW_MazeFactory1.png" alt><br><img src="/myimages/19TW_MazeFactory2.png" alt><br><img src="/myimages/19TW_MazeFactory3.png" alt><br><img src="/myimages/19TW_MazeFactory4.png" alt><br><img src="/myimages/19TW_MazeFactory5.png" alt><br><img src="/myimages/19TW_MazeFactory6.png" alt></p>
+<h2 id="Maze-java"><a href="#Maze-java" class="headerlink" title="Maze.java"></a>Maze.java</h2><p><img src="/myimages/19TWCode_Maze1.png" alt><br><img src="/myimages/19TWCode_Maze2.png" alt><br><img src="/myimages/19TWCode_Maze3.png" alt></p>
+<h2 id="Const-java"><a href="#Const-java" class="headerlink" title="Const.java"></a>Const.java</h2><p><img src="/myimages/19TWCode_Constant.png" alt></p>
+<hr>
+<h1 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h1><p>总体分为四个类<br>（1）Test.java——主函数所在类<br>键盘输入两行字符串，调用下面两个方法分别用来创建Maze对象，生成迷宫字符串mazeText。<br>Scanner scanner = new Scanner(System.in);<br>Maze maze = MazeFactory.createMaze(scaleInput,pathInput);<br>String mazeText =maze.render();</p>
+<p>（2）MazeFactor.java——迷宫工厂类<br>分为两个模块<br><strong>创建Maze模块：</strong><br>createMaze方法中调用验证模块，对输入字符串进行处理，构造两个二维数组int[][] mazeArray,int[][] pathArray，并将此作为maze方法的参数传入Maze maze = new Maze(mazeArray,pathArray)，返回Maze对象<br><strong>验证模块：</strong><br>由于第一行和第二行的输入格式内容不同，验证规则也不同，所以分为两个部分。同时，对每一行输入进行4种验证：验证格式错误、验证非连通性、验证无效数字、验证数字超出预定范围</p>
+<pre><code>验证格式错误：用字符串匹配正则表达式实现，两行输入都应当把格式错误作为第一个验证方法
+验证非连通性：对于第一行，非连通性指输入为为“0 0” 或者“1 1”或者“0 1”或者“1 0”，因为这四种情况没有连通性可言；对于第二行，非连通性指“x1,y1 x2,y2”中，x1和x2、y1和y2必有一对相等，且不相等的一对数字必定相差1
+验证无效数字：题目中的解释为“输入的字符串无法正确的转换为数字”，个人认为无效数字也属于格式错误的一种，例如“x1,y1 x2,y2”中有一个字母，因而无法转换为数字，但是要求每一项数字也是格式正确的一方面
+验证数字超出预定范围：判断“x1,y1 x2,y2”中每一个数字都大于0，并且小于对应的行和列
+</code></pre><p>（3）Maze.java——迷宫类</p>
+<pre><code>创建StringBuilder容器，准备将处理后的迷宫二维数组渲染为迷宫字符串mazeText输出；
+比较二维数组pathArray[][]中的元素，用来确定迷宫mazeArray[][]中通路的坐标，即要把哪里重置为1
+遍历迷宫二维数组，将处理后的迷宫二维数组渲染为迷宫字符串mazeText输出
+</code></pre><p>（4）Constant.java——常量类<br>包含了其他类中用到的常量：</p>
+<pre><code>public static final String INCORRECT_COMMAND = &quot;Incorrect command format.&quot;;
+public static final String INVALID_NUMBER = &quot;Invalid number format.&quot;;
+public static final String OUT_OF_RANGE = &quot;Number out of range.&quot;;
+public static final String SCALE_FORMAT_OK = &quot;scaleformat is ok&quot;;
+public static final String PATH_FORMAT_OK = &quot;pathformat is ok&quot;;
+public static final String SCALE_REGEX1 = &quot;^-?\\d+\\s-?\\d+$&quot;;
+public static final String SCALE_REGEX2 = &quot;-?\\d+&quot;;
+public static final String PATH_REGEX1 = &quot;^(-?\\d+,-?\\d+\\s-?\\d+,-?\\d+;)*(-?\\d+,-?\\d+\\s-?\\d+,-?\\d+)$&quot;;
+public static final String PATH_REGEX2 = &quot;^\\[(-?\\d,\\s){3}-?\\d\\]$&quot;;
+</code></pre><hr>
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><p><strong>注意：</strong><br>（1）下面用例中，第一行、第二行为输入，下面即为输出；紧接着是另一组的输入……<br>（2）运行主程序进行测试，首先需要键盘录入两行字符串作为输入，回车即可得到测试输出结果（迷宫或者验证错误信息提示）。</p>
+<p><strong>正常输出用例：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">2 3</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br><span class="line">[W] [R] [R] [R] [W] [R] [W]</span><br><span class="line">[W] [W] [W] [R] [W] [W] [W]</span><br><span class="line">[W] [R] [W] [R] [W] [R] [W]</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br><span class="line">1 3</span><br><span class="line">0,1 0,2</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br><span class="line">[W] [R] [W] [R] [R] [R] [W]</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br><span class="line">3 1</span><br><span class="line">0,0 1,0</span><br><span class="line">[W] [W] [W]</span><br><span class="line">[W] [R] [W]</span><br><span class="line">[W] [R] [W]</span><br><span class="line">[W] [R] [W]</span><br><span class="line">[W] [W] [W]</span><br><span class="line">[W] [R] [W]</span><br><span class="line">[W] [W] [W]</span><br><span class="line">3 3</span><br><span class="line">0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br><span class="line">[W] [R] [W] [R] [R] [R] [W]</span><br><span class="line">[W] [R] [W] [R] [W] [R] [W]</span><br><span class="line">[W] [R] [R] [R] [R] [R] [W]</span><br><span class="line">[W] [W] [W] [R] [W] [R] [W]</span><br><span class="line">[W] [R] [R] [R] [W] [R] [W]</span><br><span class="line">[W] [W] [W] [W] [W] [W] [W]</span><br></pre></td></tr></table></figure></p>
+<p><strong>每一种错误的测试用例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">23</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line"></span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2,3</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 a</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2a</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2,a</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">0 0</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Maze format error.</span><br><span class="line">0 1</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Maze format error.</span><br><span class="line">1 0</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Maze format error.</span><br><span class="line">1 1</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Maze format error.</span><br><span class="line">-2 3</span><br><span class="line">0,0 0,1;0,1 1,1</span><br><span class="line">Number out of range.</span><br><span class="line">2 3</span><br><span class="line">a,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line">0,0,0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line">0,0;0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line"></span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line">0,0</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line">a,0 0,1;0,1 1,1</span><br><span class="line">Incorrect command format.</span><br><span class="line">2 3</span><br><span class="line">0,0 0,-1;0,1 1,1</span><br><span class="line">Number out of range.</span><br><span class="line">2 3</span><br><span class="line">0,0 0,2;0,1 1,1</span><br><span class="line">Maze format error.</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li>找到输入字符串和输出迷宫的规律之后，就马上着手写了，一个Homework类从头写到尾，运行该主程序直接按照题目给定的输入得到了给定的输出。但其中存在很多问题，没有加验证、没有将各个功能模块分类、代码不是很简洁、存在一些细节上的问题…</li>
+<li>后面加了验证，并将功能实现分为了4个类，进行了一些代码细节的优化。这个过程中的一些问题如下</li>
+<li><p>输入格式的问题</p>
+<pre><code>最开始以为输入字符串是一行，所以将输入作为用一个字符串变量标记，第一行和第二行的中间用&quot;\r\n&quot;隔开
+问题：但是这样做没有考虑到后面字符串的格式验证，因为第一行和第二行的验证规则是不同的，如果不分开用不同的变量标记，比较难处理
+解决：将输入作为两行，用两个字符串变量标记
+</code></pre></li>
+<li><p>对第一行输入的处理问题</p>
+<pre><code>最开始没有对&quot;3 3&quot;进行进一步切割，所以在取两个数字的时候使用了 int | String.charAt(index)-48 得到了int类型的数字
+问题：这样做使用题目给定的测试用例可以得到正确的输出，但是当&quot;m n&quot;中m或n有一个超过两位数字，对char类型-48就不能得到正确的int类型的数值
+解决：将&quot;3 3&quot;进一步用&quot;\\s&quot;切割，得到String[]数组，对数组中的每一个String元素用Integer.parseInt(String元素)就能得到正确的int类型的数值
+</code></pre></li>
+<li><p>输入没有进行键盘录入</p>
+<pre><code>问题：最开始将输入写成固定的了，不方便进行测试没有进行键盘录入
+解决：在Test类（主类）中加上了扫描器进行键盘录入
+</code></pre></li>
+<li><p>字符串常量池</p>
+<pre><code>问题：最开始把所有的字符串直接在功能实现类中写着，看起来不够简洁
+解决：创建了一个Constant类，把用到的字符串常量都定义在里面作为静态常量被调用。包括用到的错误信息展示、flag、正则表达式
+</code></pre></li>
+<li>Maze类的属性的确定<pre><code>问题：最开始对迷宫对象的属性不知道怎么定义，即要用哪几个变量唯一确定一个迷宫。
+解决：（1）private int[][] mazeArray;//初始迷宫二维数组
+     private int[][] pathArray;//用来找通路坐标
+    （2）根据思路中提到的规律，若把墙&quot;[W]&quot;看作int类型的0，通路&quot;[R]&quot;看作int类型的1，则整个迷宫就是一个二维数组 int[][] mazeArray
+    （3）按照规律对二维数组mazeArray进行初始化，得到一部分的通路，其余的通路要由输入的第二行字符串按照相应的规律确定，
+        此时就需要对第二行字符串切割后把所有数字存入另一个二维数组int[][] pathArray，对pathArray中的元素进行比较后得到通路[R]在迷宫mazeArray中的坐标
+        重置该坐标的元素为1，就能得到最终的迷宫数组了
+</code></pre></li>
+<li><p>验证第一行输入过程中的问题</p>
+<pre><code>问题1：4种验证方法的前后顺序需要考虑。不然会引起前面的验证方法把后面的几种错误全都给拦截了的问题（当然这还与验证的规则——正则表达式有关）
+解决1：格式验证一定在第一个；其次是连通性验证；再是无效数字验证；最后是超范围验证。
+
+问题2：格式验证的正则表达式书写。这个正则必须只验证格式，把后面几种错误都放过去。最开始写的时候没有加负号&quot;-&quot;，结果把超范围错误的负数错误给拦截到格式错误中了。
+      包括在第二行输入字符串格式验证的正则表达式中，也出现了同样的问题。
+解决2：在正则中加上了对于负号的验证。
+
+问题3：关于无效数字的验证。题目中对于无效数字的定义为：不能转换为正确的数字。个人认为无效数字应该也属于格式错误的一种。
+      例如，因为pathArray中有一个元素是字母不能正确转为数字，那么这种输入本身的格式就不对。
+解决3：在无效数字验证方法中，使用和格式验证同样的正则做了匹配验证
+
+问题4：对于第一行输入非连通性的定义
+解决4：个人认为scaleInput为“0 0” 或者“1 1”或者“0 1”或者“1 0”，这四种情况下没有连通性可言。
+</code></pre></li>
+<li><p>验证第二行输入过程中的问题</p>
+<pre><code>问题1：4种验证方法的前后顺序需要考虑。不然会引起前面的验证方法把后面的几种错误全都给拦截了的问题（当然这还与验证的规则——正则表达式有关）
+解决1：格式验证一定在第一个；其次是无效数字验证；再是超范围验证；最后是连通性验证。
+与第一行顺序稍有不同，因为第二行的连通性定义不同：假设有一组输入为&quot;x1,y1 x2,y2&quot;，x1和x2、y1和y2必有一对相等，且不相等的一对数字必定相差1。
+
+问题2：超范围验证的时候，最开始只把x1,y1,x2,y2和row、column进行了比较，没有和0进行比较，因为负数也是超范围的一种
+解决2：分别把x1,y1,x2,y2和0进行了比较。
+</code></pre></li>
+</ol>
+<h2 id="需要改进的地方"><a href="#需要改进的地方" class="headerlink" title="需要改进的地方"></a>需要改进的地方</h2><ol>
+<li>验证部分写在了工厂类MazeFactory中，是不是可以把验证单独作为一个类</li>
+<li>验证第二行字符串的时候，需要拿到字符串中的每一个数字，于是又在验证模块中把字符串重新处理为二维数组int[][] pathArray，但是这一步在同一类中的createMaze(String scaleInput,String pathInput)方法中已经实现</li>
+<li>写验证模块判断条件比较长，例如验证第二行字符串超范围错误的条件用了很多个或”||”</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/TWHomework——生成迷宫/">TWHomework——生成迷宫</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 22:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/TWHomework——生成迷宫/" title="TWHomework——生成迷宫">http://yoursite.com/2019/08/29/TWHomework——生成迷宫/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/TWHomework——生成迷宫/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Maze/" rel="tag"><i class="fa fa-tag"></i> Maze</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/Learn-to-Git/" rel="next" title="Learn to Git">
+                <i class="fa fa-chevron-left"></i> Learn to Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/常用Linux命令/" rel="prev" title="常用Linux命令">
+                常用Linux命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-java"><span class="nav-number">3.1.</span> <span class="nav-text">Test.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MazeFactory-java"><span class="nav-number">3.2.</span> <span class="nav-text">MazeFactory.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maze-java"><span class="nav-number">3.3.</span> <span class="nav-text">Maze.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-java"><span class="nav-number">3.4.</span> <span class="nav-text">Const.java</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码说明"><span class="nav-number">4.</span> <span class="nav-text">代码说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试用例"><span class="nav-number">5.</span> <span class="nav-text">测试用例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">6.1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要改进的地方"><span class="nav-number">6.2.</span> <span class="nav-text">需要改进的地方</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

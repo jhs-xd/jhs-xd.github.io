@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Internet,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Genius only means hard-working all one’s life. ——Mendeleyev">
+<meta name="keywords" content="Internet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/计算机网络/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="Genius only means hard-working all one’s life. ——Mendeleyev">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/16.jpg">
+<meta property="og:image" content="http://yoursite.com/myimages/16PDU数据的封装.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16PDU封装实例.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16数据通信系统模型.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16IP及其配套协议.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16IP地址的分类.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16子网掩码.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16TCP和UDP应用.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16超时重传.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16确认丢失和确认迟到.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16三次握手建立TCP连接.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16四次挥手.png">
+<meta property="og:image" content="http://yoursite.com/myimages/16树状结构的DNS域名服务器.png">
+<meta property="og:updated_time" content="2019-04-10T13:54:03.885Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络">
+<meta name="twitter:description" content="Genius only means hard-working all one’s life. ——Mendeleyev">
+<meta name="twitter:image" content="http://yoursite.com/myimages/16.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/计算机网络/">
+
+
+
+
+
+  <title>计算机网络 | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/《计算机网络》/" itemprop="url" rel="index">
+                    <span itemprop="name">《计算机网络》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">Genius only means hard-working all one’s life. ——Mendeleyev<br><img src="/myimages/16.jpg" alt></blockquote></p>
+<a id="more"></a>
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol>
+<li>网络（network）：若干结点和连接这些结点的链路组成（网络中结点可以是计算机、集线器、交换机、路由器）</li>
+<li>互联网：通过路由器把网络和网络连接起来，互联网是“网络的网络”</li>
+<li><p>因特网：世界上最大的互联网（网络把计算机连接在一起，因特网把网络连接在一起）</p>
+<pre><code>1.因特网发展的三个阶段
+第一阶段：单个网络ARPANET——&gt;Internet
+第二阶段：建成三级结构的互联网（主干网、地区网、校园网/企业网）
+第三阶段：形成多层次ISP（Internet Service Provider）结构的因特网
+
+2.ISP：因特网服务提供商，ISP从因特网管理机构申请到很多IP地址，同时拥有通信线路和路由器等连网设备。
+
+3.ISP多层结构
+（1）根据覆盖面积和拥有IP数目的大小，ISP分为三层：主干ISP、地区ISP、本地ISP
+（2）主机A要和主机B通信，需要依次经过本地ISPa、地区ISPa、主干ISPa，
+主干ISPb、地区ISPb、本地ISPb一层层传输
+（3）IXP：因特网交换点，它允许两个网络直接相连并交换分组，不需要通过第三个网络转发分组
+
+4.上网：通过某个ISP获得IP，将用户主机通过ISP接入因特网
+
+5.因特网的组成
+（1）边缘部分：主机
+（2）核心部分：大量网络+路由器
+边缘部分利用核心部分提供的服务，使众多主机之间能够互相通信并交换、共享信息
+
+6.路由器
+实现分组交换（动态分配传输线路的资源），转发收到的分组
+分组交换采用存储转发技术，将要发送的报文划分为等长的数据包/分组
+
+7.计算机之间的通信：主机A的某个进程和主机B上的另一个进程进程通信
+通信方式：
+（1）C/S：客户服务器方式
+（2）P2P：对等方式
+</code></pre></li>
+<li><p>“三网”：电信网络、计算机网络、有线电视网络</p>
+</li>
+<li>计算机网络的分类<pre><code>（1）广域网WAN（因特网的核心部分）：长距离传输数据
+（2）城域网MAN
+（3）局域网LAN：多个互联的局域网组成校园网/企业网
+</code></pre></li>
+<li>计算机网络的性能指标<pre><code>（1）速率：单位bit/s
+（2）带宽：通信线路允许通过的信号频带范围；表示通信线路传输数据的能力，即单位时间内通信线路所能通过的“最高数据率”
+（3）吞吐量：单位时间内通过某个网络的数据量（受带宽限制）
+（4）时延：总时延=排队时延+处理时延+发送时延+传播时延，提高数据的发送速率只是减小了数据的发送时延
+（5）时延带宽积：表示从发送端发出但尚未到达接收端的比特
+（6）往返时间RTT：表示从发送方发送数据开始，到发送方收到接收方的确认，总经历的时间
+（7）利用率：信道利用率——某信道有百分之几的时间是被利用的
+            网络利用率——全网络信道利用率的加权平均值
+            信道或网络利用率过高会产生非常大的时延
+</code></pre></li>
+<li>计算机网络的体系结构<pre><code>1.协议
+网络通信的规则，规则明确规定了：数据格式、同步问题（时序问题）
+2.体系结构
+计算机网络的各层及其协议的集合称为网络的体系结构
+3.具有五层协议的体系结构
+（1）OSI的七层协议
+OSI是由国际标准化组织制定的标准，它概念清楚，理论完善，但是复杂又不实用。
+    7    应用层
+    6    表示层
+    5    会话层
+    4    运输层
+    3    网络层
+    2    数据链路层
+    1    物理层
+（2）TCP/IP的四层协议
+TCP/IP体系结构得到了非常广泛的应用
+    4    应用层(各种应用层协议如HTTP，FTP，DNS等)
+    3    运输层(TCP或UDP)
+    2    网际层(又名网络互联层)
+    1    数据链路层(又名网络接口层)
+（3）五层协议
+学习网络原理时的体系结构，结合OSI和TCP/IP的优点
+    5    应用层（进程间通信和交互的规则，如HTTP，FTP等）
+    4    运输层（为进程间的通信提供通用的数据传输服务，如TCP,UDP）
+    3    网络层（为分组交换网上的不同主机提供通信服务，选择合适的路由，通过路由器找到目的主机，IP协议）
+    2    数据链路层（将IP数据报组装成帧在链路上传送，每一帧包括数据和控制信息——同步信息、地址信息、差错控制信息）
+    1    物理层
+</code></pre></li>
+<li>数据在各层之间的传递<pre><code>（1）协议数据单元PDU
+计算机网络体系结构中，对等层之间交换的信息报文统称为协议数据单元（Protocol Data Unit，PDU）
+PDU由协议控制信息（协议头）和数据（SDU）组成
+（2）各层PDU的名称
+        应用层 —— 报文（Message）
+        传输层 —— 段（Segment）
+        网络层 —— 分组/包（Packet）
+        数据链路层 —— 帧（Frame）
+        物理层 —— 比特（Bit）
+（3）PDU的封装
+在计算机网络体系结构中，下层把上层的PDU作为本层的数据加以封装，然后增加本层的协议头部（和尾部）形成本层的PDU
+</code></pre></li>
+</ol>
+<p><img src="/myimages/16PDU数据的封装.png" alt></p>
+<p>下图为TCP/IP协议对于PDU的封装：</p>
+<p><img src="/myimages/16PDU封装实例.png" alt></p>
+<hr>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><ol>
+<li>数据通信系统的模型<br>一个数据通信系统分为三大部分：源系统、传输系统、目的系统</li>
+</ol>
+<p><img src="/myimages/16数据通信系统模型.png" alt></p>
+<pre><code>（1）源系统
+源点：要传输的数据
+发送器：源点数据要经过发送器编码（基带调制）后才能在传输系统中传输
+典型的发送器是调制器
+
+（2）目的系统
+接收器：接收传输系统传过来的信号，解调为能被目的设备处理的信息
+典型的接收器是解调器
+终点：获取传输过来的数字比特流，把信息输出
+</code></pre><ol start="2">
+<li><p>宽带接入技术<br>用户要连接到Internet，必须先连接到某个ISP，获取上网所需的IP<br>（1）初期，利用电话线通过调制解调器连接到ISP（最高速率达到56kb/s）<br>（2）如今，多种宽带接入技术</p>
+<pre><code>1.ADSL技术
+（1）ADSL：非对称数字用户线，用数字技术对现有的模拟电话线进行改造，使它能够承载宽带数字业务
+
+（2）原理：在电话线的两端各安装一个ADSL调制解调器（我国采用离散多音调DMT调制技术实现）
+相当于在电话线上使用许多小的调制解调器并行地传送数据
+由于用户电话线的具体条件（距离、线径、干扰等）差别很大，所以ADSL不能保证固定的数据率
+ADSL采用自适应调制技术使用户线能够传送尽可能高的数据率
+
+（3）“非对称”的含义：ADSL的下行（从ISP到用户）带宽远远大于上行（从用户到ISP）带宽
+
+（4）ADSL的传输距离取决于：数据速率（速率越快传输距离越短）、电话线的线径（越细衰减越大）
+</code></pre></li>
+</ol>
+<hr>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><ol>
+<li>数据链路层的信道：点对点信道、广播信道</li>
+<li>数据链路层协议的任务：<pre><code>（1）封装成帧：在一段数据的前后添加首部和尾部，构成一帧
+（2）透明传输：当传送的帧使用文本文件组成的帧，数据部分不会出现帧定界控制字符，不论键盘输入什么都可以在帧中传输过去，称为透明传输
+    字节填充法解决透明传输问题（发送端的数据链路层，在数据中出现控制字符时，需要在前面插入一个转义字符）
+（3）差错检测：在数据链路层才能广泛使用循环冗余检验CRC的检错技术
+    凡是接收端数据链路层接受的帧均无差错
+</code></pre></li>
+</ol>
+<hr>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><ol>
+<li>与IP协议配套的三个协议：</li>
+</ol>
+<ul>
+<li>地址解析协议ARP（将网络层的IP地址解析为数据链路层的硬件地址）</li>
+<li>网际控制报文协议ICMP</li>
+<li>网际组管理协议IGMP</li>
+</ul>
+<p><img src="/myimages/16IP及其配套协议.png" alt></p>
+<ol start="2">
+<li><p>IP地址<br>IP地址是给因特网上每一个主机（或路由器）的每一个接口分配一个唯一的32位的标识符</p>
+</li>
+<li><p>IP地址的分类如下：</p>
+</li>
+</ol>
+<p><img src="/myimages/16IP地址的分类.png" alt></p>
+<pre><code>（1）IP地址=网络号+主机号
+    网络号：标志主机（或路由器）所连接的网络
+    主机号：标志网络号范围内的主机
+（2）IP地址不仅指明一个主机，也指明了主机所连接的网络
+（3）IP地址采用点分十进制记法
+（4）A类地址的网络号占1个字节，主机号占3个字节
+    因此每一个A类网络中可指派的最大网络数为2^7-2，减2的原因：全0表示本网络，127（即01111111）保留作为本地软件环回测试本主机的进程之间的通信
+    最大主机数为2^24-2，减2的原因：全0代表“本主机”，全1表示该网络上的所有主机
+</code></pre><ol start="4">
+<li><p>IP地址的特点</p>
+<pre><code>（1）每一个IP地址都由网络号和主机号两部分组成。IP地址是一种 分等级的地址结构。分两个等级的好处是：
+    1&gt;IP地址管理机构在分配IP地址时只分配网络号（第一级），而剩下的主机号（第二级）则由得到该网络号的单位自行分配
+    2&gt;路由器仅根据目的主机所连接的网络号来转发分组（而不考虑目的主机号），这样就可以使路由表中的项目数大幅度减少，
+    从而减小了路由表所占的存储空间以及查找路由表的时间
+
+（2）实际上IP地址是标志一个主机（或路由器）和一条链路的接口。由于一个路由器至少应当连接到两个网络，因此一个路由器至少应当有两个不同的IP地址。
+
+（3）用转发器或网桥连接起来的若干个局域网仍为一个网络，因为这些局域网都具有同样的网络号。
+    具有不同网络号的局域网必须使用路由器进行互连
+    即：
+    1&gt;同一个局域网上的主机或路由器的IP地址中的网络号必须一致
+    2&gt;路由器总是有两个或两个以上的IP地址，即路由器的每一个接口都有一个不同网络号的IP地址
+
+（4）在IP地址中，所有分配到网络号的网络（不管是范围很小的局域网，还是可能覆盖很大地理范围的广域网）都是平等的
+</code></pre></li>
+<li><p>IP地址与硬件地址</p>
+<pre><code>（1）硬件地址/物理地址/MAC地址：数据链路层和物理层使用的地址，位于MAC帧的首部
+（2）IP地址：网络层和以上各层使用的地址，是一种逻辑地址。位于IP数据报的首部
+（3）因此在数据链路层，只能看见MAC帧，不能看见IP数据报（IP地址）
+</code></pre></li>
+<li><p>划分子网<br>在ARPANET的早期，IP地址的设计确实不够合理：</p>
+<ul>
+<li>IP地址空间的利用率有时很低</li>
+<li>给每一个物理网络分配一个网络号会使路由表变得太大因而使网络性能变坏</li>
+<li>两级IP地址不够灵活</li>
+</ul>
+<p>为解决上述问题，进行<strong>划分子网</strong>：在IP地址中又增加了一个“子网号字段＂，使两级IP地 址变成为<strong>三级IP地址</strong>（网络号+子网号+主机号）</p>
+<p> <strong>注意：</strong>划分子网只是把IP地址的主机号这部分进行再划分，不改变网络号</p>
+</li>
+<li><p>子网掩码<br>标志是否对主机号进行了子网划分<br>因特网规定：所有的网络都必须有子网掩码，不划分子网时，使用各类IP对应的默认子网掩码</p>
+</li>
+</ol>
+<p><img src="/myimages/16子网掩码.png" alt></p>
+<p><strong>三级IP地址的子网掩码</strong>和数据报的<strong>目的IP地址</strong>逐位相“与”，得到子网的网络地址</p>
+<ol start="8">
+<li>路由表的内容：使用子网划分后，路由表必须包含三项内容——目的网络地址、子网掩码、下一跳地址</li>
+</ol>
+<hr>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><ol>
+<li><p>网络层与传输层的区别</p>
+<pre><code>（1）网络层为主机之间提供逻辑通信
+    传输层为进程之间提供端到端的逻辑通信
+（2）在网络层，IP数据报首部中的检验和字段， 只检验首部是否出现差错而不检查数据部分
+    运输层还要对收到的报文进行差错检测
+</code></pre></li>
+<li><p>传输层的两个主要协议</p>
+<pre><code>TCP：传输控制协议，面向连接
+UDP：用户数据报协议，无连接
+</code></pre></li>
+</ol>
+<p>使用UDP和TCP协议的各种应用和应用层协议：<br><img src="/myimages/16TCP和UDP应用.png" alt></p>
+<ol start="3">
+<li><p>传输层的端口</p>
+<pre><code>（1）把一个特定机器上运行的特定进程指明为因特网上通信最后的终点还是不可行的。
+    这是因为进程的创建和撤销都是动态的，通信的一方几乎无法识别对方机器上的进程。
+（2）为解决上述问题，引入运输层的端口。
+    虽然通信的终点是应用进程，但我们只要把要传送的报文交到目的主机的某一个合适的目的端口，
+    剩下的工作（即最后交付给目的进程）就由TCP来完成
+（3）TCP/IP的运输层用一个16位端口号来标志一个端口
+</code></pre></li>
+<li><p>用户数据报协议UDP</p>
+<pre><code>（1）UDP只在IP的数据报服务之上增加了很少一点的功能，这就是复用和分用的功能以及差错检测的功能
+
+（2）UDP的主要特点：
+    1&gt; UDP是无连接的
+    2&gt; UDP使用尽最大努力交付，即不保证可靠交付
+    3&gt; UDP是面向报文的
+        发送方的UDP对应用程序交下来的报文，在添加首部后就向下交付给IP层。UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。
+    4&gt; UDP没有拥塞控制
+        因此网络出现的拥塞不会使源主机的发送速率降低。
+    5&gt; UDP支持一对一、一对多、多对一和多对多的交互通信
+    6&gt; UDP的首部开销小，只有8个字节，比TCP的20个字节的首部要短
+
+（3）UDP的首部格式
+    首部字段由4个字段、8个字节组成，每个字段2个字节
+    1&gt; 源端口：在需要对方回信时选用，不需要时可用全0
+    2&gt; 目的端口：这在终点交付报文时必须要使用到
+    3&gt; 长度：UDP用户数据报的长度，其最小值是8 (仅有首部）
+    4&gt; 检验和：检测UDP用户数据报在传输中是否有错，有错就丢弃（首部和数据部分一起检验）
+</code></pre></li>
+<li><p>传输控制协议TCP</p>
+<pre><code>（1）TCP的主要特点：
+    1&gt;  TCP是面向连接的运输层协议
+        应用程序在使用TCP协议之前，必须先建立TCP连接；在传送数据完毕后，必须释放已经建立的TCP连接
+    2&gt; 每一条TCP连接只能有两个端点（一对一，点对点）
+    3&gt; TCP提供可靠交付的服务
+        通过TCP连接传送的数据，无差错、不丢失、不重复、并且按序到达
+    4&gt; TCP提供全双工通信
+        TCP允许通信双方的应用进程在任何时候都能发送数据。
+        TCP连接的两端都设有发送缓存和接收缓存，用来临时存放双向通信的数据
+    5&gt; 面向字节流
+        TCP把应用程序交下来的数据看成仅仅是一连串的无结构的字节流，TCP并不知道所传送的字节流的含义。
+
+（2）TCP的连接
+    1&gt; TCP面向连接，每条TCP连接有两个端点，端点称为套接字Socket
+    2&gt; 套接字Socket=IP:端口号
+    3&gt; 每一条TCP连接唯一地被通信两端的两个端点（即两个套接字）所确定
+
+（3）TCP可靠传输原理
+    通过可靠传输协议实现：
+    1&gt; 停止等待协议（自动重传请求ARQ）
+        “停止等待”就是每发送完一个分组就停止发送，等待对方的确认；在收到确认后再发送下一个分组。
+
+        a.超时重传（发送方出错）
+        若传输过程中出现差错，接收方不会返回确认信息，发送方超过一段时间未收到确认，就会进行“超时重传”
+        注意：
+            第一，发送方在发送完一个分组后，必须暂时保留已发送的分组的副本（为发生超时重传时使用）
+            第二，分组和确认分组都必须进行编号
+            第三，超时计时器设置的重传时间应当比数据在分组传输的平均往返时间更长一些
+
+        b.确认丢失（接收方出错）
+        接收方的确认丢失了，发送方就会进行超时重传，但事实上接收方已经接收到了数据
+        接收方需要做：
+        第一，丢弃这个重复的分组M2,不向上层交付
+        第二，向发送方重新发送确认
+
+    经过上述的确认和重传机制，就可以在不可靠的传输网络上实现可靠的通信
+
+    注意：停止等待协议信道利用率极低
+         为提高传输效率，采用流水线传输
+         流水线传输就是发送方可连续发送多个分组，不必每发完一个分组就停顿下来等待对方的确认
+
+    2&gt; 连续ARQ协议/滑动窗口协议（流水线传输）
+    发送方分组发送：位于窗口中的多个分组都可以连续发出去，不需要等待对方确认
+    接收方累积确认：接收方不必对收到的分组逐个发送确认，而是可以在收到几个分组后，对按序到达的最后一个分组发送确认
+</code></pre></li>
+</ol>
+<p>超时重传：<br><img src="/myimages/16超时重传.png" alt></p>
+<p>确认丢失：<br><img src="/myimages/16确认丢失和确认迟到.png" alt></p>
+<pre><code>（4）TCP的首部格式
+    首部占：20+4n字节，其中20个字节是固定的，4n字节根据需要增加
+
+    首部各字段：
+    1&gt; 源端口、目的端口
+    2&gt; 序号：在一个TCP连接中传送的字节流中的每一个字节都按顺序编号
+    3&gt; 确认号：期望收到对方下一个报文段的第一个数据字节的序号
+    4&gt; 数据偏移：这个字段实际上是指出TCP报文段的首部长度
+    5&gt; 保留：占6位，保留为今后使用，但目前应置为0
+    6&gt; 紧急URG：URG=1标志该报文段中包含紧急数据，应尽快发送
+    7&gt; 确认ACK：TCP规定，在连接建立后所有传送的报文段都必须把ACK置l
+    8&gt; 推送PSH
+    9&gt; 复位RST
+    10&gt; 同步SYN：建立连接时的标志。
+        当SYN=1而ACK=0时，表明这是一个连接请求报文段。
+        对方若同意建立连接，则应在响应的报文段中使SYN=1和ACK=1
+        因此，SYN置为1就表示这是个连接请求或连接接受报文
+    11&gt; 终止FIN：用来释放一个连接
+        当FIN=1时，表明此报文段的发送方的数据已发送完毕， 并要求释放运输连接
+    12&gt; 窗口：窗口指的是发送本报文段的一方的接收窗口（而不是自己的发送窗口）
+        窗口值作为接收方让发送方设置其发送窗口的依据
+    13&gt; 检验和：检验和字段检验的范围包括首部和数据这两部分
+    14&gt; 紧急指针：紧急指针仅在URG = 1时才有意义，它指出本报文段中的紧急数据的字节数（紧急数据结束后就是普通数据）
+    15&gt; 选项
+
+（5）TCP可靠传输的实现
+    以字节为单位的滑动窗口
+    超时重传
+    选择确认SACK
+
+（6）TCP的流量控制
+    让发送方的发送速率不要太快，要让接收方来得及接收
+    发送方的发送窗口不能超过接收方给出的接收窗口的数值（TCP的窗口单位是字节，不是报文段）
+
+（7）TCP的拥塞控制
+
+（8）TCP的运输连接管理
+    运输连接的三个阶段：连接建立，数据传送，连接释放
+</code></pre><ol start="6">
+<li><p>TCP“三次握手，四次挥手”<br>（1）TCP的连接建立——三次握手<br><img src="/myimages/16三次握手建立TCP连接.png" alt></p>
+<pre><code>准备工作：
+1.客户主动打开连接、服务器被动打开连接
+2.B的TCP服务器进程先创建传输控制块TCB上，准备接受客户进程的连接请求。
+  然后服务器进程就处于LISTEN收听状态，等待客户的连接请求。如有，即作出响应
+
+第一次握手：
+A的TCP客户进程也是首先创建传输控制模块TCB,然后向B发出连接请求报文段
+这时首部中的同步位SYN=1，同时选择一个初始序号seq=x
+这时，TCP客户进程进入SYN-SENT（同步已发送）状态
+
+第二次握手：
+B收到连接请求报文段后，如同意建立连接，则向A发送确认。
+在确认报文段中应把SYN位和ACK位都置1，确认号是ack=x+1，同时也为自己选择一个初始序号seq=y
+这时TCP服务器进程进入SYN-RCVD（同步收到）状态
+
+第三次握手：
+TCP客户进程收到B的确认后，还要向B给出确认。
+确认报文段的ACK置1，确认号ack=y+1，而自己的序号seq=x+l
+这时，TCP连接已经建立，A进入ESTABLISHED（已建立连接）状态
+当B收到A的确认后，也进入ESTABLISHED状态
+第三次握手可以携带HTTP请求报文
+
+问题：为什么最后A还要在发送一次确认？
+答：A不想欺骗B，让服务器B一直建立着连接，等着A发送数据。事实上，A此时并没有建立连接请求。
+    这是由于很久之前A的连接请求在某些网络节点长时间滞留了，A在此期间重传了一次新的连接请求，完成了TCP连接和数据传输。
+    等到滞留的旧的连接请求抵达服务器端B，A已经释放了客户端的连接。
+</code></pre></li>
+</ol>
+<p>（2）TCP的连接释放——四次挥手<br><img src="/myimages/16四次挥手.png" alt></p>
+<pre><code>第一次挥手：
+A的应用进程先向其TCP发出连接释放报文段，并停止再发送数据，主动关闭TCP连接。
+A把连接释放报文段首部的FIN置1,其序号seq=u
+这时A进入FIN-WAIT-1(终止等待1)状态，等待B的确认
+
+第二次挥手：
+B收到连接释放报文段后即发出确认，确认号是ack=u+1，而这个报文段自己的序号是v
+B就进入CLOSE-WAIT（关闭等待）状态
+A收到来自B的确认后，就进入FIN-WAIT-2C终止等待2)状态，等待B发出的连接释放报文段
+此时，TCP连接处于半关闭(half-close)状态：A到B的连接关闭，但B到A的连接仍开启。即A已经没有数据要发送了，但B若发送数据，A仍要接收
+
+第三次挥手：
+B发出的连接释放报文段必须使FIN=1，B还必须重复上次已发送过的确认号ack=u+1
+这时B就进入LAST-ACK（最后确认）状态，等待A的确认
+
+第四次挥手：
+A在收到B的连接释放报文段后，必须对此发出确认。
+在确认报文段中把ACK置1，确认号ack=w+1，而自己的序号是seq=u+l
+A进入到TIME-WAIT（时间等待）状态
+
+注意：现在TCP连接还没有释放掉。必须经过时间等待计时器(TIME-WAITtimer)设置的时间2MSL后，A才进入到CLOSED状态（时间MSL叫做最长报文段寿命）
+
+当A撤销相应的传输控制块TCB后，就结束了这次的TCP连接
+B只要收到了A发出的确认，就进入CLOSED状态
+同样，B在撤销相应的传输控制块TCB后，就结束了这次的TCP连接（B结束TCP连接的时间要比A早一些）
+</code></pre><hr>
+<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><ol>
+<li>域名系统DNS<br>域名系统DNS(Domain Name System)是因特网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址<br>（1）域名到IP地址的解析是由分布在因特网上的许多域名服务器程序（可简称为域名服务器）共同完成的<br>（2）DNS的分布式结构<br><strong>树状结构的DNS域名服务器</strong></li>
+</ol>
+<p><img src="/myimages/16树状结构的DNS域名服务器.png" alt></p>
+<p>每一个域名服务器都只对域名体系中的一部分进行管辖</p>
+<pre><code>根据域名服务器所起的作用，可以把域名服务器划分为以下四种不同的类型：
+1&gt; 根域名服务器
+2&gt; 顶级域名服务器TLD
+3&gt; 权限域名服务器
+4&gt; 本地域名服务器
+</code></pre><ol start="2">
+<li>万维网 WWW<br>（1）万维网是一个大规模的、联机式的信息储藏所，英文简称为Web<br>（2）万维网以客户服务器方式工作<br>客户程序向服务器程序发出请求，服务器程序向客户程序送回客户所要的万维网文档<br>（3）怎样标志分布在整个因特网上的万维网文档？<br>万维网使用<strong>统一资源定位符URL</strong>来标志万维网上的各种文档，并使每个文档在整个因特网的范围内具有唯的标识符URL<br>（4）用什么样的协议来实现万维网上各种链接？<br>万维网客户程序与万维网服务器程序之间的交互遵守<strong>超文本传送协议HTTP</strong><br>（5）怎样使不同作者创作的不同风格的万维网文档都能在因特网上的各种主机上显示出来？<br>万维网使用<strong>超文本标记语言HTML</strong>, 使得万维网页面的设计者可以很方便地用链接从本页面的某处链接到因特网上的任何个万维网页面，并且能够在自己的主机屏幕上将这些页面显示出来</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/计算机网络/">计算机网络</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 21:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/计算机网络/" title="计算机网络">http://yoursite.com/2019/08/29/计算机网络/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/计算机网络/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Internet/" rel="tag"><i class="fa fa-tag"></i> Internet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/由JSP引出的前后端分离架构/" rel="next" title="由JSP引出的前后端分离架构">
+                <i class="fa fa-chevron-left"></i> 由JSP引出的前后端分离架构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/Linux操作系统/" rel="prev" title="Linux操作系统">
+                Linux操作系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物理层"><span class="nav-number">2.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据链路层"><span class="nav-number">3.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络层"><span class="nav-number">4.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传输层"><span class="nav-number">5.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层"><span class="nav-number">6.</span> <span class="nav-text">应用层</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="多线程；String类、StringBuffer类、StringBuilder类；数组；基本数据类型包装类；集合类；其他对象API（System类、Runtime类、Math类、Date类、Calendar类）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="易错点-多线程+常用对象API">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/易错点-多线程-常用对象API/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="多线程；String类、StringBuffer类、StringBuilder类；数组；基本数据类型包装类；集合类；其他对象API（System类、Runtime类、Math类、Date类、Calendar类）">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/4.jpg">
+<meta property="og:updated_time" content="2019-04-10T12:51:01.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="易错点-多线程+常用对象API">
+<meta name="twitter:description" content="多线程；String类、StringBuffer类、StringBuilder类；数组；基本数据类型包装类；集合类；其他对象API（System类、Runtime类、Math类、Date类、Calendar类）">
+<meta name="twitter:image" content="http://yoursite.com/myimages/4.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/易错点-多线程-常用对象API/">
+
+
+
+
+
+  <title>易错点-多线程+常用对象API | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/易错点-多线程-常用对象API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">易错点-多线程+常用对象API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的错题库/" itemprop="url" rel="index">
+                    <span itemprop="name">我的错题库</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我的错题库/牛客错题整理/" itemprop="url" rel="index">
+                    <span itemprop="name">牛客错题整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>多线程；String类、StringBuffer类、StringBuilder类；数组；基本数据类型包装类；集合类；其他对象API（System类、Runtime类、Math类、Date类、Calendar类）</strong><br><img src="/myimages/4.jpg" alt></p>
+<a id="more"></a>
+<hr>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>创建并启动线程的过程为：定义线程——&gt;实例化线程——&gt;启动线程</p>
+<ol>
+<li>定义线程：<br>（1）扩展java.lang.Thread类<br>（2）实现java.lang.Runnable接口</li>
+<li>实例化线程：<br>（1）如果是扩展java.lang.Thread类的线程，则直接new即可。<br>（2）如果是实现了java.lang.Runnable接口的类，则用Thread的构造方法：</li>
+</ol>
+<pre><code>Thread(Runnable target)  eg: new Thread(new MyRunnable()).start()
+Thread(Runnable target, String name) 
+Thread(ThreadGroup group, Runnable target) 
+Thread(ThreadGroup group, Runnable target, String name) 
+Thread(ThreadGroup group, Runnable target, String name, long stackSize)
+</code></pre><ol start="3">
+<li>启动线程：<br>在线程的Thread对象上调用start()方法，而不是run()或者别的方法</li>
+</ol>
+<pre><code>1 run()方法用来执行线程体中具体的内容
+  start()方法用来启动线程对象，使其进入就绪状态
+  sleep()方法用来使线程进入睡眠状态
+  suspend()方法用来使线程挂起，要通过resume()方法使其重新启动
+
+2 线程停止的三种方式
+  （1）调用stop()
+  （2）异常抛出
+  （3）线程执行完毕
+
+3 锁：函数使用的锁是this(即对象本身)，若函数被static修饰则锁为 类名.class
+
+4 ConcurrentHashMap使用ReentrantLock来保证线程安全。
+  （1）hashMap在单线程中使用大大提高效率，在多线程的情况下使用hashTable来确保安全。
+  （2）hashTable中使用synchronized关键字来实现安全机制，但是synchronized是对整张hash表
+  进行锁定即让线程独享整张hash表，在安全同时造成了浪费。
+  （3）concurrentHashMap采用分段加锁的机制来确保安全
+
+5 Java并发
+  （1）CopyOnWriteArrayList适合使用在读操作远远大于写操作的场景里，比如缓存。
+  （2）ReadWriteLock当写操作时，其他线程无法读取或写入数据，
+  而当读操作时，其它线程无法写入数据，但却可以读取数据 。适用于读取远远大于写入的操作。
+  （3）ConcurrentHashMap是一个线程安全的HashMap，它的主要功能是提供了一组和HashMap
+  功能相同但是线程安全的方法。ConcurrentHashMap可以做到读取数据不加锁，不用对整个ConcurrentHashMap加锁
+
+6 线程调度算法是平台独立的
+
+7 前台线程与后台线程
+  （1）jre 判断程序是否执行结束的标准是所有的前台线程执行完毕。 属于某个进程的所有前台线程都终止后，该进程就会被终止。
+  （2）可以在任何时候将前台线程修改为后台线程，方式是设置Thread.IsBackground 属性。
+  （3）不管是前台线程还是后台线程，如果线程内出现了异常，都会导致进程的终止。
+  （4）托管线程池中的线程都是后台线程，使用new Thread方式创建的线程默认都是前台线程。
+
+  说明：一般后台线程用于处理时间较短的任务，如在一个Web服务器中可以利用后台线程来处理客户端发过来的请求信息。
+  而前台线程一般用于处理需要长时间等待的任务，如在Web服务器中的监听客户端请求的程序，或是定时对某些系统资源进行扫描的程序
+
+8 截止JDK1.8版本,java并发框架支持锁包括：读写锁、自旋锁、乐观锁
+
+9 同步器是一些使线程能够等待另一个线程的对象，允许它们协调动作。最常用的同步器是CountDownLatch和Semaphore，不常用的是Barrier 和Exchanger
+
+10 ThreadLocal
+  （1）ThreadLocal用于创建线程的本地变量，该变量是线程之间不共享的
+  （2）ThreadLocal是采用哈希表的方式来为每个线程都提供一个变量的副本
+  （3）ThreadLocal保证各个线程间数据安全，每个线程的数据不会被另外线程访问和破坏
+  ThreadLocal的作用是提供线程内的局部变量（类似于private static的作用，但是多个线程之间数据又不共享），这种变量在线程的生命周期内起作用，
+  减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度
+</code></pre><hr>
+<h1 id="String类、StringBuffer类、StringBuilder类"><a href="#String类、StringBuffer类、StringBuilder类" class="headerlink" title="String类、StringBuffer类、StringBuilder类"></a>String类、StringBuffer类、StringBuilder类</h1><pre><code>1 string是值传递，stringbuffer是引用传递
+
+2 String a=&quot;Hello&quot;;
+  String b=a.substring(0,2);
+  //b的值为He，substring( )方法截取的字符串“左闭右开”
+
+3 String类默认是final类型的，不能继承和修改这个类（String属于值传递）
+
+4 String s =new String(“xyz”);创建了几个string object？
+  答：两个， 第一个在堆中，第二个在字符串常量池中！如果在Java字符串常量池中已经存在，就只会创建一个
+</code></pre><hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><pre><code>1 判断：int a[][]=new int[][]        （×）
+  解析：二维数组的声明必须指定第一个维度的初始值
+
+2 在java 中，声明一个数组时，不能直接限定数组长度，只有在创建实例化对象时，才能对给定数组长度
+
+3 判断：Java实现了真数组，避免了覆盖数据类型的可能   （×）
+  解析：Java实现了真数组，避免了数据覆盖的可能，而不是数据覆盖类型
+</code></pre><hr>
+<h1 id="基本数据类型包装类"><a href="#基本数据类型包装类" class="headerlink" title="基本数据类型包装类"></a>基本数据类型包装类</h1><pre><code>1 ==和.equals()运算
+  （1）基本型和基本型封装型进行“==”运算符的比较，基本型封装型将会自动拆箱变为基本型后再进行比较
+  （2） 两个Integer类型（不是new出来的）进行“==”比较，如果其值在-128至127，那么返回true，否则（会new对象，然后比较地址值）返回false
+  （3） 两个基本型的封装型进行equals()比较，首先equals()会比较类型，如果类型相同，则继续比较值，如果值也相同，返回true
+  （4） 基本型封装类型调用equals()，但是参数是基本类型，这时候，先会进行自动装箱，基本型转换为其封装类型，再进行（3）中的比较
+
+2 可以把任何一种数据类型的变量赋给Object类型的变量。其中，基本数据类型会自动装箱
+
+3 Java中的byte，short，char进行计算时都会先提升为int类型
+  注意：没有final修饰的变量相加后，才会被自动提升为int型；
+       而被fianl修饰的变量不会自动改变类型，当两个final修饰的变量相操作时，结果会根据左边变量的类型而转化
+
+4 instanceof：可以用来判断某个实例变量是否属于某种类的类型，还可以判断某个类是否属于某个类的子类的类型
+</code></pre><hr>
+<h1 id="集合类"><a href="#集合类" class="headerlink" title="集合类"></a>集合类</h1><h2 id="集合框架、Collection、Iterator"><a href="#集合框架、Collection、Iterator" class="headerlink" title="集合框架、Collection、Iterator"></a>集合框架、Collection、Iterator</h2><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ol>
+<li>List集合有序（添加顺序）且可重复</li>
+<li>List继承自Collection接口，List也是一个接口。</li>
+<li>ArrayList、LinkedList、Vector类实现了List接口。用的时候一般都用ArrayList</li>
+<li>ArrayList、LinkedList的选择：<br>（1）对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针；<br>对于新增和删除操作add和remove，LinkedList比较占优势，因为ArrayList要移动数据<br>（2）当操作是在一列数据的后面添加数据而不是在前面或中间，并且需要随机地访问其中的元素时，使用ArrayList会提供比较好的性能；<br>当你的操作是在一列数据的前面或中间添加或删除数据，并且按照顺序访问其中的元素时，就应该使用LinkedList了</li>
+<li>ArrayList是实现List接口的大小可变数组<br>ArrayList删除元素后，剩余元素会依次向前移动，因此下标一直在变，size()也会减小</li>
+</ol>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><ol>
+<li>List一定有序，Set不一定无序<br>我们经常听说List是有序且重复的，Set是无序不重复的。这里有个误区，这里说的顺序有两个概念，一是按添加的顺序排列，二是按自然顺序a-z排列。<br>Set并不是无序的，传统说法中的Set无序是指HashSet,它不能保证元素的添加顺序，更不能保证自然顺序。<br>而Set的其他实现类是可以实现这两种顺序的（TreeSet可以实现自然顺序有序，LinkedHashSet可以实现添加顺序有序）</li>
+<li>AbstractSet类实现了Set接口<br>HashSet继承了AbstractSet类，所以相当于也实现了Set接口（Java中子类会继承父类对于接口的实现）</li>
+<li>ResultSet跟普通的数组不同，索引从1开始而不是从0开始</li>
+</ol>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><pre><code>1 key-value对，键值对，相同键值会放在一处，后一个会覆盖前一个的数值
+
+2 HashMap可以插入null的key或value
+  插入的时候，检查是否已经存在相同的key，如果不存在，则直接插入；
+  如果存在，则用新的value替换旧的value
+
+3 在Java中，HashMap中是用链地址法来解决哈希冲突的
+
+4 判断：HashTable使用Enumeration，HashMap使用Iterator   （√） 
+  解析：Hashtable、HashMap都使用了Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式
+
+5 判断：Hashtable直接使用对象的hashCode，HashMap重新计算hash值，而且用与代替求模 （√）
+</code></pre><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="集合框架工具类（Collections、Arrays）"><a href="#集合框架工具类（Collections、Arrays）" class="headerlink" title="集合框架工具类（Collections、Arrays）"></a>集合框架工具类（Collections、Arrays）</h2><pre><code>1 Arrays.asList()
+  （1）将一个数组转化为一个List对象，这个方法会返回一个ArrayList类型的对象
+  但这个ArrayList类并非java.util.ArrayList类，而是Arrays类的静态内部类！
+  （2）用这个对象对列表进行添加删除更新操作，就会报UnsupportedOperationException异常
+</code></pre><hr>
+<h1 id="其他对象API"><a href="#其他对象API" class="headerlink" title="其他对象API"></a>其他对象API</h1><h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><pre><code>1 判断：我们在程序中经常使用“System.out.println()”来输出信息，语句中的System是包名，out是类名，println是方法名 （×）
+  解析：System是java.lang中的一个类，out是System内的一个成员变量，
+  这个变量是一个java.io.PrintStream类的对象，println()是它的一个方法
+</code></pre><h2 id="Runtime类"><a href="#Runtime类" class="headerlink" title="Runtime类"></a>Runtime类</h2><h2 id="Number类"><a href="#Number类" class="headerlink" title="Number类"></a>Number类</h2><pre><code>1 Number类可以被继承，Integer，Float，Double等都继承自Number类
+</code></pre><h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><pre><code>1 ceil()/floor()
+  （1）Math.ceil(d1)  //如果参数小于0且大于-1.0，结果为-0
+  （2）Math.floor(d1)  //如果参数是无穷、正0、负0，那么结果与参数相同（如果是-0.0，那么其结果是-0.0）
+</code></pre><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><h2 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h2>
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/易错点-多线程-常用对象API/">易错点-多线程+常用对象API</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 20:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/易错点-多线程-常用对象API/" title="易错点-多线程+常用对象API">http://yoursite.com/2019/08/29/易错点-多线程-常用对象API/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/易错点-多线程-常用对象API/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/易错点-Java核心概念/" rel="next" title="易错点-Java核心概念">
+                <i class="fa fa-chevron-left"></i> 易错点-Java核心概念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/易错点-框架-其他/" rel="prev" title="易错点-框架+其他">
+                易错点-框架+其他 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">1.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String类、StringBuffer类、StringBuilder类"><span class="nav-number">2.</span> <span class="nav-text">String类、StringBuffer类、StringBuilder类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">3.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型包装类"><span class="nav-number">4.</span> <span class="nav-text">基本数据类型包装类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合类"><span class="nav-number">5.</span> <span class="nav-text">集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合框架、Collection、Iterator"><span class="nav-number">5.1.</span> <span class="nav-text">集合框架、Collection、Iterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">5.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">5.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">5.4.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">5.5.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合框架工具类（Collections、Arrays）"><span class="nav-number">5.6.</span> <span class="nav-text">集合框架工具类（Collections、Arrays）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他对象API"><span class="nav-number">6.</span> <span class="nav-text">其他对象API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#System类"><span class="nav-number">6.1.</span> <span class="nav-text">System类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Runtime类"><span class="nav-number">6.2.</span> <span class="nav-text">Runtime类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number类"><span class="nav-number">6.3.</span> <span class="nav-text">Number类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math类"><span class="nav-number">6.4.</span> <span class="nav-text">Math类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date类"><span class="nav-number">6.5.</span> <span class="nav-text">Date类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar类"><span class="nav-number">6.6.</span> <span class="nav-text">Calendar类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

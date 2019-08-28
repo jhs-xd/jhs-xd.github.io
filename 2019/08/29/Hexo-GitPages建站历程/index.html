@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hang's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Let’s make a difference.">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo&amp;GitPages建站历程">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/Hexo-GitPages建站历程/index.html">
+<meta property="og:site_name" content="Hang&#39;s Blog">
+<meta property="og:description" content="Let’s make a difference.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/myimages/2.jpg">
+<meta property="og:image" content="http://yoursite.com/myimages/2.1.png">
+<meta property="og:image" content="http://yoursite.com/myimages/2.2.png">
+<meta property="og:updated_time" content="2019-04-10T12:53:19.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo&amp;GitPages建站历程">
+<meta name="twitter:description" content="Let’s make a difference.">
+<meta name="twitter:image" content="http://yoursite.com/myimages/2.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/Hexo-GitPages建站历程/">
+
+
+
+
+
+  <title>Hexo&GitPages建站历程 | Hang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+	<!--<a href="https://github.com/jhsxd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>-->
+	
+	<a href="https://github.com/jhsxd" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/Hexo-GitPages建站历程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Si Jinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/myimages/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo&GitPages建站历程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T00:34:15+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hello-hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hello hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">Let’s make a difference.<img src="/myimages/2.jpg" alt></blockquote>
+
+<a id="more"></a>
+<blockquote>
+<p>毛主席说了：前途是光明的，道路是曲折的。</p>
+</blockquote>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="//music.163.com/outchain/player?type=2&id=27845535&auto=1&height=66"></iframe>
+
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>  这是我开始搭建个人博客的第三天，有了自己的一亩三分地，很开心。现在看来搭建个人博客并不是最初想的那么难，但即使按照教程来做，还是会遇到很多问题。接下来分享我使用hexo+gitpages搭建博客的过程以及一些你可能也卡壳的地方，希望能帮助到你。<br>  我会分为三部分介绍，第一部分搭建起博客的雏形，第二部分做一些个性化的配置（这个真的好玩，但也耗费时间），第三部分是我遇到的几个问题，避免你犯同样的错误浪费时间。</p>
+<hr>
+<h1 id="一-上线你的博客"><a href="#一-上线你的博客" class="headerlink" title="一 上线你的博客"></a>一 上线你的博客</h1><h2 id="获得个人网站域名"><a href="#获得个人网站域名" class="headerlink" title="获得个人网站域名"></a>获得个人网站域名</h2><p>在<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云</a>购买属于你的域名</p>
+<h2 id="GitHub创建个人仓库"><a href="#GitHub创建个人仓库" class="headerlink" title="GitHub创建个人仓库"></a>GitHub创建个人仓库</h2><p>登录注册<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>，点击GitHub中的New repository创建新仓库，仓库名应该为：用户名.github.io</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>Git是开源的分布式版本控制系统，用于敏捷高效地处理项目。我们网站在本地搭建好了，需要使用Git同步到GitHub上。</p>
+<ol>
+<li><p>下载安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a>，在菜单里搜索Git Bash，设置user.name和user.email配置信息：<br>git config –global user.name “你的GitHub用户名”<br>git config –global user.email “你的GitHub注册邮箱”</p>
+</li>
+<li><p>生成ssh密钥文件：<br>ssh-keygen -t rsa -C “你的GitHub注册邮箱”<br>然后直接三个回车即可，默认不需要设置密码<br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>在github中找到Settings，新建new SSH Key<br>在Git Bash中检测GitHub公钥设置是否成功，输入ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</li>
+</ol>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Hexo基于Node.js，下载安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>，检测Node.js是否安装成功，在命令行中输入 node -v，检测npm是否安装成功，在命令行中输入npm -v</p>
+<p>到这了，安装Hexo的环境已经全部搭建完成！！！</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ol>
+<li>在本地创建Blog文件夹，然后Git Bash Here</li>
+<li>npm install -g hexo-cli安装Hexo</li>
+<li>初始化Blog hexo init</li>
+<li><p>新建博客并本地预览，检测网站本地是否能打开</p>
+<pre><code>hexo new test_my_site
+hexo g
+hexo s
+</code></pre><p> 浏览器输入 localhost:4000</p>
+</li>
+</ol>
+<h2 id="推送网站"><a href="#推送网站" class="headerlink" title="推送网站"></a>推送网站</h2><p>将hexo创建的博客相关文件推送到github上</p>
+<ol>
+<li><p>将Hexo与GitHub关联<br>打开站点的配置文件_config.yml，翻到最后修改为：（注意：每一个冒号后面都有一个空格）</p>
+<pre><code>deploy: 
+type: git
+repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git
+branch: master
+</code></pre></li>
+<li>安装Git部署插件，输入命令：npm install hexo-deployer-git –save</li>
+<li><p>这时，我们分别输入三条命令：</p>
+<pre><code>hexo clean 
+hexo g 
+hexo d
+</code></pre><p>完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即git用户名.github.io，你就会发现你的博客已经上线了，可以在网络上被访问了！！！</p>
+</li>
+</ol>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><ol>
+<li>登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析</li>
+<li>添加CNAME解析： CNAME的记录值是：你的用户名.github.io</li>
+<li>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名, save</li>
+<li>进入本地博客文件夹 ，进入blog/source目录下，创建一个没有后缀的文件命名为CNAME，输入你的域名，保存</li>
+<li>git bash依次输入：hexo clean      hexo g       hexo d</li>
+<li>打开浏览器在地址栏输入你的个性化域名将会直接进入你自己搭建的网站！！！</li>
+</ol>
+<hr>
+<h1 id="二-个性化设置"><a href="#二-个性化设置" class="headerlink" title="二 个性化设置"></a>二 个性化设置</h1><h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
+<li><p>下载next主题：</p>
+<pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre></li>
+<li>修改站点配置文件_config.yml中的theme: next</li>
+<li>在主题配置文件_config.yml中的Scheme Settings，可以选择next主题的样式</li>
+</ol>
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>在站点 _config.yml 中添加 avatar: http://…. # 头像的URL（可以在markdownpad2中Ctrl+G生成）</p>
+<h2 id="添加网易云音乐模块"><a href="#添加网易云音乐模块" class="headerlink" title="添加网易云音乐模块"></a>添加网易云音乐模块</h2><ol>
+<li>修改blog\themes\next\layout_macro的sidebar.swig文件，添加网易云音乐网页版中音乐的外链代码</li>
+<li>设置音乐是否自动播放：修改代码中的auto为0/1即可</li>
+</ol>
+<h2 id="设置背景"><a href="#设置背景" class="headerlink" title="设置背景"></a>设置背景</h2><ol>
+<li><p>把你挑选的背景图片命名为：background.jpg，放在blog\themes\next\source\images里，在blog\themes\next\source\css_custom文件的custom.styl首部添加：</p>
+<pre><code>body {background:url(/images/background.jpg);background-attachment: fixed;}
+</code></pre><p>background-attachment: fixed;是固定背景图片。</p>
+</li>
+<li>这是设置一张静态图片作为背景，其实Next主题自带有动态的背景效果，修改主题配置文件中的canvas_nest: false为canvas_nest: true即可</li>
+</ol>
+<h2 id="增加侧栏条目"><a href="#增加侧栏条目" class="headerlink" title="增加侧栏条目"></a>增加侧栏条目</h2><ol>
+<li>修改主题配置文件_config.yml里的Menu Settings中的menu和menu_icons两个地方。</li>
+<li>其中menu里是配置菜单项对应的页面位置（如：/love），menu_icons对应菜单项的图标，这里的图标是来自于Font Awesome ，所以你需要在Font Awesome网站上找到你需要的icon，然后把该icon的名字写在menu_icons对应菜单名后面，注意冒号有一个英文输入状态的空格。</li>
+<li>设置好后，在命令行里输入：hexo new page “你所要增加的菜单项名称（要和你在menu中的填写要匹配）”</li>
+<li>新建的页面在博客根目录下的source文件里，这时你就可以对新建的页面自定义设计。</li>
+</ol>
+<h2 id="隐藏底部的poweredby"><a href="#隐藏底部的poweredby" class="headerlink" title="隐藏底部的poweredby"></a>隐藏底部的poweredby</h2><p>打开themes/next/layout/_partials/footer.swig,使用<!--   -->隐藏之间的代码即可</p>
+<pre><code>&lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt; &lt;div class=&quot;theme-info&quot;&gt;&lt;/div&gt;
+</code></pre><h2 id="在每篇博文下面添加版权信息"><a href="#在每篇博文下面添加版权信息" class="headerlink" title="在每篇博文下面添加版权信息"></a>在每篇博文下面添加版权信息</h2><ol>
+<li>详见<br><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a></li>
+<li>如果要在该博文下面增加版权信息的显示，需要在 Markdown 中增加copyright: true的设置</li>
+</ol>
+<h2 id="主页文章添加阴影效果"><a href="#主页文章添加阴影效果" class="headerlink" title="主页文章添加阴影效果"></a>主页文章添加阴影效果</h2><p>打开\themes\next\source\css_custom\custom.styl,向里面加入：</p>
+<pre><code>   // 主页文章添加阴影效果
+   .post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+}
+</code></pre><h2 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h2><p>修改模板/themes/next/layout/_macro/post.swig，搜索rel=”tag”&gt;#，将 # 换成<br> <img src="/myimages/2.1.png" alt></p>
+<h2 id="将链接文本设置为蓝色"><a href="#将链接文本设置为蓝色" class="headerlink" title="将链接文本设置为蓝色"></a>将链接文本设置为蓝色</h2><pre><code>.post-body p a {
+color: #0593d3;
+border-bottom: none;
+&amp;:hover {
+color: #0477ab;
+text-decoration: underline;
+}
+}
+</code></pre><h2 id="在右上角或者左上角实现fork-me-on-github"><a href="#在右上角或者左上角实现fork-me-on-github" class="headerlink" title="在右上角或者左上角实现fork me on github"></a>在右上角或者左上角实现fork me on github</h2><p>修改 themes/next/layout/_layout.swig文件，放在<br> <img src="/myimages/2.2.png" alt><br>的下面，并把href改为你的github地址</p>
+<h2 id="添加来必力评论系统"><a href="#添加来必力评论系统" class="headerlink" title="添加来必力评论系统"></a>添加来必力评论系统</h2><ol>
+<li>注册L<a href="https://livere.com/" target="_blank" rel="noopener">ivere</a>，获取livere_uid，参考教程<a href="https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html" target="_blank" rel="noopener">https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html</a></li>
+<li>在主题 _config.yml 文件中添加如下配置： livere_uid= “你的来必力UID”</li>
+</ol>
+<hr>
+<h1 id="三-卡住我的地方"><a href="#三-卡住我的地方" class="headerlink" title="三 卡住我的地方"></a>三 卡住我的地方</h1><h2 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h2><p>申请购买到属于你的域名后，一定要先实名认证，上传你的身份证正面照片即可（认证过程大约一两个小时）<br>阿里云注册的域名不认证用不了，我当时已经在本地部署好了博客网站的雏形（也就是hexo s后，浏览器打开localhost:4000），而且设置好域名CNAME解析到github用户名.github.io，但是在浏览器输入域名就404找不到网页。原因就是你的域名还不能用啊。</p>
+<h2 id="推送网站-1"><a href="#推送网站-1" class="headerlink" title="推送网站"></a>推送网站</h2><p>把hexo生成的博客部署/推送在github上这一步，修改站点配置文件_config.yml时要注意：</p>
+<pre><code>deploy: 
+  type: git
+  repo: 
+  branch: master
+</code></pre><p>这些代码每一个冒号后面都有一个空格，我浪费了大半天时间在同学的帮助下才找这个问题</p>
+<h2 id="添加来必力评论系统-1"><a href="#添加来必力评论系统-1" class="headerlink" title="添加来必力评论系统"></a>添加来必力评论系统</h2><p>最新版本的hexo已经支持第三方levere插件的一键配置，只需要在主题 _config.yml 文件中找到livere_uid，取消其注释并加上你获取到的livere_uid即可。已经不需要向以前很多博文中介绍的那样，添加修改各种文件和代码了。</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>我的建站历程终于到此为止啦，希望你也建站顺利！在此感谢<a href="http://bbblemon.top/" target="_blank" rel="noopener">AbelChao</a>同学的帮助让我少走了很多弯路！感谢橙子彤倾情赞助的首页美图！</p>
+<hr>
+<h1 id="可供参考的其他建站资料"><a href="#可供参考的其他建站资料" class="headerlink" title="可供参考的其他建站资料"></a>可供参考的其他建站资料</h1><p><a href="http://jmyblog.top/Hexo-GithubPages-CodingPages%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="noopener">Hexo+GithubPages&amp;CodingPages搭建自己的个人博客</a><br><a href="https://www.cnblogs.com/ruruozhenhao/p/8215011.html" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a><br><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Hexo搭建博客教程</a><br><a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a><br><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">next主题配置</a></p>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2019/08/29/Hexo-GitPages建站历程/">Hexo&GitPages建站历程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Si Jinhang 的个人博客">Si Jinhang</a></p>
+  <p><span>发布时间:</span>2019年08月29日 - 00:08</p>
+  <p><span>最后更新:</span>2019年04月10日 - 20:04</p>
+  <p><span>原始链接:</span><a href="/2019/08/29/Hexo-GitPages建站历程/" title="Hexo&GitPages建站历程">http://yoursite.com/2019/08/29/Hexo-GitPages建站历程/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/Hexo-GitPages建站历程/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/03-29建站/" rel="next" title="今天建站啦">
+                <i class="fa fa-chevron-left"></i> 今天建站啦
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/Learn-to-Git/" rel="prev" title="Learn to Git">
+                Learn to Git <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTMwNi8xMTg0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myimages/background.jpg" alt="Si Jinhang">
+            
+              <p class="site-author-name" itemprop="name">Si Jinhang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jhsxd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-grav"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=441442&auto=0&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一-上线你的博客"><span class="nav-number">2.</span> <span class="nav-text">一 上线你的博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获得个人网站域名"><span class="nav-number">2.1.</span> <span class="nav-text">获得个人网站域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub创建个人仓库"><span class="nav-number">2.2.</span> <span class="nav-text">GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">2.3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.4.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.5.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送网站"><span class="nav-number">2.6.</span> <span class="nav-text">推送网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">2.7.</span> <span class="nav-text">绑定域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-个性化设置"><span class="nav-number">3.</span> <span class="nav-text">二 个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换主题"><span class="nav-number">3.1.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置头像"><span class="nav-number">3.2.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加网易云音乐模块"><span class="nav-number">3.3.</span> <span class="nav-text">添加网易云音乐模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置背景"><span class="nav-number">3.4.</span> <span class="nav-text">设置背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加侧栏条目"><span class="nav-number">3.5.</span> <span class="nav-text">增加侧栏条目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏底部的poweredby"><span class="nav-number">3.6.</span> <span class="nav-text">隐藏底部的poweredby</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在每篇博文下面添加版权信息"><span class="nav-number">3.7.</span> <span class="nav-text">在每篇博文下面添加版权信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">3.8.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-number">3.9.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将链接文本设置为蓝色"><span class="nav-number">3.10.</span> <span class="nav-text">将链接文本设置为蓝色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在右上角或者左上角实现fork-me-on-github"><span class="nav-number">3.11.</span> <span class="nav-text">在右上角或者左上角实现fork me on github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加来必力评论系统"><span class="nav-number">3.12.</span> <span class="nav-text">添加来必力评论系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-卡住我的地方"><span class="nav-number">4.</span> <span class="nav-text">三 卡住我的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#域名申请"><span class="nav-number">4.1.</span> <span class="nav-text">域名申请</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送网站-1"><span class="nav-number">4.2.</span> <span class="nav-text">推送网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加来必力评论系统-1"><span class="nav-number">4.3.</span> <span class="nav-text">添加来必力评论系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可供参考的其他建站资料"><span class="nav-number">6.</span> <span class="nav-text">可供参考的其他建站资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Si Jinhang</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
