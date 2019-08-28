@@ -8,7 +8,7 @@ tags:
   - Ubuntu
 
 ---
-<blockquote class="blockquote-center">Variety is the spice of life.
+<blockquote class="blockquote-center">静坐常思己过，闲谈莫论人生.
 ![](/myimages/21.jpg)
 
 <!-- more -->
